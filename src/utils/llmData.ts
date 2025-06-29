@@ -1,4 +1,3 @@
-
 export interface Model {
   name: string;
   size: string;
@@ -70,7 +69,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "GPT-2-small", size: "0.5GB", description: "OpenAI's original small model" },
       { name: "T5-small", size: "0.2GB", description: "Text-to-Text Transfer Transformer" },
       { name: "FLAN-T5-small", size: "0.3GB", description: "Instruction-tuned T5" },
-      { name: "UL2-small", size: "0.8GB", description: "Unified Language Learner" }
+      { name: "UL2-small", size: "0.8GB", description: "Unified Language Learner" },
+      { name: "DeBERTa-v3-small", size: "0.4GB", description: "Microsoft's enhanced BERT" },
+      { name: "CANINE-s", size: "0.5GB", description: "Character-level model" },
+      { name: "Longformer-base", size: "0.6GB", description: "Long document understanding" },
+      { name: "BigBird-small", size: "0.7GB", description: "Sparse attention model" },
+      { name: "Reformer-small", size: "0.3GB", description: "Memory-efficient transformer" },
+      { name: "FNet-small", size: "0.4GB", description: "Fourier transform model" },
+      { name: "Synthesizer-small", size: "0.3GB", description: "Synthetic attention patterns" },
+      { name: "GPT-Neo-1.3B", size: "1.3GB", description: "EleutherAI's 1.3B model" },
+      { name: "OPT-350M", size: "0.7GB", description: "Meta's 350M parameter model" },
+      { name: "BLOOM-560M", size: "1.1GB", description: "BigScience's small multilingual" }
     ],
     code: [
       { name: "CodeT5-small", size: "0.3GB", description: "Compact code generation model" },
@@ -80,14 +89,36 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "GraphCodeBERT-base", size: "0.5GB", description: "Pre-trained model with data flow" },
       { name: "CodeT5-base", size: "0.9GB", description: "Identifier-aware unified pre-trained encoder-decoder" },
       { name: "PyCodeGPT-110M", size: "0.4GB", description: "Python code generation specialist" },
-      { name: "CodeParrot-110M", size: "0.4GB", description: "GPT-2 model trained on Python code" }
+      { name: "CodeParrot-110M", size: "0.4GB", description: "GPT-2 model trained on Python code" },
+      { name: "CodeSearchNet-small", size: "0.6GB", description: "Code search and understanding" },
+      { name: "CuBERT-small", size: "0.4GB", description: "Google's code understanding" },
+      { name: "CodeGPT-small", size: "0.5GB", description: "Microsoft's code GPT" },
+      { name: "PLBART-small", size: "0.7GB", description: "Programming language BART" },
+      { name: "TreeBERT-small", size: "0.6GB", description: "Tree-based code representation" },
+      { name: "CoTexT-small", size: "0.5GB", description: "Code and text pre-training" },
+      { name: "SynCoBERT-small", size: "0.6GB", description: "Syntax-guided code BERT" }
     ],
     chat: [
       { name: "DialoGPT-small", size: "0.4GB", description: "Microsoft's chat model" },
       { name: "BlenderBot-small", size: "0.4GB", description: "Facebook's conversational AI" },
       { name: "PersonaChat-small", size: "0.3GB", description: "Personality-based chatbot" },
       { name: "ConvAI2-small", size: "0.3GB", description: "Conversational AI challenge winner" },
-      { name: "Empathetic-small", size: "0.4GB", description: "Empathetic response generation" }
+      { name: "Empathetic-small", size: "0.4GB", description: "Empathetic response generation" },
+      { name: "DailyDialog-small", size: "0.4GB", description: "Daily conversation model" },
+      { name: "MultiWOZ-small", size: "0.5GB", description: "Multi-domain dialogue" },
+      { name: "DSTC8-small", size: "0.4GB", description: "Dialog system technology challenge" },
+      { name: "TopicalChat-small", size: "0.3GB", description: "Knowledge-grounded conversations" },
+      { name: "Wizard-small", size: "0.5GB", description: "Wikipedia-grounded dialogue" }
+    ],
+    embeddings: [
+      { name: "sentence-transformers/all-MiniLM-L6-v2", size: "0.1GB", description: "Sentence embeddings" },
+      { name: "sentence-transformers/all-mpnet-base-v2", size: "0.4GB", description: "High-quality embeddings" },
+      { name: "text-embedding-ada-002", size: "0.2GB", description: "OpenAI's embedding model" },
+      { name: "instructor-base", size: "0.3GB", description: "Instruction-following embeddings" },
+      { name: "e5-small-v2", size: "0.1GB", description: "Microsoft's text embeddings" },
+      { name: "bge-small-en-v1.5", size: "0.1GB", description: "BAAI's general embeddings" },
+      { name: "gte-small", size: "0.1GB", description: "General text embeddings" },
+      { name: "multilingual-e5-small", size: "0.2GB", description: "Multilingual embeddings" }
     ]
   },
   low: {
@@ -111,7 +142,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "CPM-2", size: "2.6GB", description: "Chinese Pre-trained Language Model" },
       { name: "mT5-small", size: "1.2GB", description: "Multilingual Text-to-Text Transfer" },
       { name: "ByT5-small", size: "1.5GB", description: "Byte-level Text-to-Text Transfer" },
-      { name: "Switch-2B", size: "2.0GB", description: "Switch Transformer sparse model" }
+      { name: "Switch-2B", size: "2.0GB", description: "Switch Transformer sparse model" },
+      { name: "GPT-NeoX-2B", size: "2.0GB", description: "EleutherAI's NeoX architecture" },
+      { name: "OPT-1.3B", size: "1.3GB", description: "Meta's 1.3B parameter model" },
+      { name: "BLOOM-1B7", size: "1.7GB", description: "BigScience's 1.7B model" },
+      { name: "Pythia-1.4B", size: "1.4GB", description: "EleutherAI's 1.4B model" },
+      { name: "StableLM-Alpha-3B", size: "2.2GB", description: "Stability AI's alpha model" },
+      { name: "OpenLLM-3B", size: "2.1GB", description: "Open-sourced language model" },
+      { name: "Dolly-v1-6B", size: "3.0GB", description: "Databricks' instruction model" },
+      { name: "GPT4All-J-6B", size: "3.2GB", description: "Nomic AI's assistant model" },
+      { name: "Vicuna-3B", size: "2.1GB", description: "UC Berkeley's 3B chat model" },
+      { name: "Alpaca-3B", size: "2.0GB", description: "Stanford's 3B instruction model" }
     ],
     code: [
       { name: "CodeGen-2B", size: "1.8GB", description: "Salesforce's code generation model" },
@@ -123,7 +164,15 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "GPT-Code-2B", size: "2.0GB", description: "Code-specialized GPT variant" },
       { name: "AlphaCode-2B", size: "2.2GB", description: "DeepMind's programming model" },
       { name: "Codex-2B", size: "2.0GB", description: "OpenAI's code generation model" },
-      { name: "TabNine-2B", size: "2.1GB", description: "AI code completion assistant" }
+      { name: "TabNine-2B", size: "2.1GB", description: "AI code completion assistant" },
+      { name: "CodeT5-base", size: "1.8GB", description: "Salesforce's code T5" },
+      { name: "PLBART-base", size: "2.0GB", description: "Programming language BART" },
+      { name: "CodeBERT-large", size: "1.3GB", description: "Large CodeBERT variant" },
+      { name: "GraphCodeBERT-large", size: "1.4GB", description: "Large GraphCodeBERT" },
+      { name: "UnixCoder-large", size: "1.8GB", description: "Large UnixCoder model" },
+      { name: "CuBERT-large", size: "1.5GB", description: "Large CuBERT model" },
+      { name: "TreeBERT-large", size: "1.6GB", description: "Large TreeBERT model" },
+      { name: "CoTexT-large", size: "1.7GB", description: "Large CoTexT model" }
     ],
     chat: [
       { name: "Alpaca-3B", size: "2.0GB", description: "Stanford's instruction-following model" },
@@ -135,13 +184,24 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "RedPajama-Chat-3B", size: "2.1GB", description: "Together AI's chat model" },
       { name: "OpenChatKit-3B", size: "2.2GB", description: "Together AI's open chat model" },
       { name: "Koala-3B", size: "2.0GB", description: "UC Berkeley's dialogue model" },
-      { name: "Guanaco-3B", size: "2.1GB", description: "QLoRA fine-tuned model" }
+      { name: "Guanaco-3B", size: "2.1GB", description: "QLoRA fine-tuned model" },
+      { name: "FastChat-T5-3B", size: "2.0GB", description: "LMSYS's chat model" },
+      { name: "ChatGLM-6B", size: "3.2GB", description: "Tsinghua's bilingual chat" },
+      { name: "BELLE-7B", size: "3.5GB", description: "Chinese instruction-tuned model" },
+      { name: "Phoenix-3B", size: "2.1GB", description: "FreedomIntelligence's model" },
+      { name: "Baize-7B", size: "3.4GB", description: "Self-chat trained model" }
     ],
     multilingual: [
       { name: "mGPT-2.7B", size: "2.7GB", description: "Multilingual GPT model" },
       { name: "XLM-R-base", size: "2.0GB", description: "Cross-lingual language model" },
       { name: "mBERT-large", size: "1.8GB", description: "Multilingual BERT" },
-      { name: "BLOOM-1B7", size: "1.7GB", description: "BigScience multilingual model" }
+      { name: "BLOOM-1B7", size: "1.7GB", description: "BigScience multilingual model" },
+      { name: "mT5-base", size: "2.3GB", description: "Multilingual T5 base" },
+      { name: "XLM-RoBERTa-large", size: "2.2GB", description: "Large multilingual RoBERTa" },
+      { name: "RemBERT", size: "2.0GB", description: "Rethinking multilingual BERT" },
+      { name: "IndicBERT", size: "1.8GB", description: "Indian languages BERT" },
+      { name: "AraBERT", size: "1.7GB", description: "Arabic BERT model" },
+      { name: "CamemBERT", size: "1.8GB", description: "French RoBERTa model" }
     ]
   },
   moderate_low: {
@@ -165,7 +225,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "OPT-6.7B", size: "6.7GB", description: "Meta's 6.7B parameter model" },
       { name: "T5-large", size: "3.0GB", description: "Large Text-to-Text Transfer" },
       { name: "FLAN-T5-large", size: "3.2GB", description: "Instruction-tuned T5 large" },
-      { name: "UL2-base", size: "4.0GB", description: "Unified Language Learner base" }
+      { name: "UL2-base", size: "4.0GB", description: "Unified Language Learner base" },
+      { name: "Cerebras-GPT-6.7B", size: "6.7GB", description: "Cerebras's 6.7B model" },
+      { name: "GPT-J-6B", size: "6.0GB", description: "EleutherAI's 6B model" },
+      { name: "Pythia-12B", size: "6.5GB", description: "EleutherAI's 12B model" },
+      { name: "StableLM-Alpha-7B", size: "4.2GB", description: "Stability AI's alpha 7B" },
+      { name: "OpenLLM-7B", size: "4.0GB", description: "Community open model" },
+      { name: "LLaMA-7B", size: "4.1GB", description: "Meta's original LLaMA" },
+      { name: "Dolly-v2-7B", size: "4.0GB", description: "Databricks' v2 model" },
+      { name: "GPT4All-13B", size: "6.8GB", description: "Nomic AI's large model" },
+      { name: "Vicuna-7B-v1.1", size: "3.9GB", description: "Improved Vicuna v1.1" },
+      { name: "Alpaca-7B-v2", size: "3.8GB", description: "Stanford's v2 model" }
     ],
     code: [
       { name: "CodeLlama-7B", size: "3.8GB", description: "Meta's specialized code model" },
@@ -177,7 +247,15 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "PolyCoder-6B", size: "6.1GB", description: "Carnegie Mellon's large code model" },
       { name: "AlphaCode-7B", size: "4.0GB", description: "DeepMind's competitive programming" },
       { name: "Codex-7B", size: "4.1GB", description: "OpenAI's advanced code model" },
-      { name: "WizardCoder-7B", size: "4.0GB", description: "Microsoft's coding wizard" }
+      { name: "WizardCoder-7B", size: "4.0GB", description: "Microsoft's coding wizard" },
+      { name: "StarCoder-3B", size: "3.2GB", description: "Smaller StarCoder variant" },
+      { name: "CodeGen2-7B", size: "4.0GB", description: "Salesforce's CodeGen v2" },
+      { name: "PLBART-large", size: "6.0GB", description: "Large programming BART" },
+      { name: "CodeT5p-2B", size: "2.8GB", description: "Medium CodeT5+ model" },
+      { name: "UniXcoder-base", size: "1.2GB", description: "Unified cross-modal pre-training" },
+      { name: "CuBERT-6B", size: "6.1GB", description: "Large code understanding BERT" },
+      { name: "TreeBERT-6B", size: "6.0GB", description: "Large tree-based code model" },
+      { name: "CoTexT-6B", size: "6.2GB", description: "Large code-text model" }
     ],
     chat: [
       { name: "Zephyr-7B-beta", size: "4.2GB", description: "HuggingFace's chat specialist" },
@@ -189,20 +267,34 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Vicuna-7B-v1.3", size: "3.9GB", description: "Improved Vicuna chat model" },
       { name: "WizardLM-7B", size: "4.0GB", description: "Microsoft's instruction model" },
       { name: "Orca-Mini-7B", size: "4.1GB", description: "Microsoft's reasoning model" },
-      { name: "Samantha-7B", size: "4.0GB", description: "Eric Hartford's assistant model" }
+      { name: "Samantha-7B", size: "4.0GB", description: "Eric Hartford's assistant model" },
+      { name: "Airoboros-7B", size: "4.1GB", description: "Context-aware chat model" },
+      { name: "Manticore-7B", size: "4.0GB", description: "Multi-domain chat model" },
+      { name: "Chronos-7B", size: "4.1GB", description: "Time-aware chat model" },
+      { name: "Huginn-7B", size: "4.0GB", description: "Norse mythology themed model" },
+      { name: "MythoMax-7B", size: "4.1GB", description: "Roleplay-optimized model" }
     ],
     reasoning: [
       { name: "WizardMath-7B", size: "4.0GB", description: "Mathematical reasoning specialist" },
       { name: "MAmmoTH-7B", size: "4.1GB", description: "Mathematical reasoning model" },
       { name: "MetaMath-7B", size: "3.9GB", description: "Mathematical problem solver" },
       { name: "Abel-7B", size: "4.0GB", description: "Advanced reasoning capabilities" },
-      { name: "Orca-2-7B", size: "4.1GB", description: "Microsoft's reasoning specialist" }
+      { name: "Orca-2-7B", size: "4.1GB", description: "Microsoft's reasoning specialist" },
+      { name: "OpenOrca-7B", size: "4.0GB", description: "Open-source Orca variant" },
+      { name: "Platypus-7B", size: "4.1GB", description: "STEM reasoning model" },
+      { name: "Goat-7B", size: "4.0GB", description: "Arithmetic reasoning specialist" },
+      { name: "MathGLM-7B", size: "4.1GB", description: "Mathematical problem solving" },
+      { name: "Lemur-7B", size: "4.0GB", description: "Language model with tool use" }
     ],
     multilingual: [
       { name: "BLOOM-7B1", size: "7.1GB", description: "BigScience multilingual 7B" },
       { name: "mGPT-7B", size: "4.2GB", description: "Multilingual GPT 7B" },
       { name: "Polyglot-Ko-7B", size: "4.0GB", description: "Korean language model" },
-      { name: "Chinese-Alpaca-7B", size: "4.1GB", description: "Chinese instruction model" }
+      { name: "Chinese-Alpaca-7B", size: "4.1GB", description: "Chinese instruction model" },
+      { name: "Japanese-StableLM-7B", size: "4.0GB", description: "Japanese language model" },
+      { name: "Vigogne-7B", size: "4.1GB", description: "French instruction model" },
+      { name: "Cabrita-7B", size: "4.0GB", description: "Portuguese language model" },
+      { name: "Guanaco-7B", size: "4.1GB", description: "Multilingual assistant" }
     ]
   },
   moderate: {
@@ -226,7 +318,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Dolphin-2.2.1-7B", size: "4.1GB", description: "Eric Hartford's uncensored model" },
       { name: "PlatYi-7B", size: "4.0GB", description: "01.AI's chat-optimized model" },
       { name: "TinyLlama-1.1B-Chat", size: "1.1GB", description: "Compact conversational model" },
-      { name: "DeepSeek-LLM-7B", size: "4.2GB", description: "DeepSeek's language model" }
+      { name: "DeepSeek-LLM-7B", size: "4.2GB", description: "DeepSeek's language model" },
+      { name: "Zephyr-7B-beta", size: "4.1GB", description: "HuggingFace's chat specialist" },
+      { name: "Neural-Chat-7B-v3", size: "4.2GB", description: "Intel's latest chat model" },
+      { name: "OpenChat-3.5", size: "4.0GB", description: "High-performance chat model" },
+      { name: "StableBeluga2-7B", size: "4.1GB", description: "Stability AI's v2 chat model" },
+      { name: "Llama-2-7B-Chat-GPTQ", size: "3.6GB", description: "Quantized Llama-2 chat" },
+      { name: "Mistral-7B-OpenOrca", size: "4.0GB", description: "Mistral fine-tuned on Orca" },
+      { name: "NeuralBeagle-7B", size: "4.1GB", description: "Merged model with enhanced capabilities" },
+      { name: "Airoboros-L2-7B-GPT4", size: "4.0GB", description: "GPT-4 trained model" },
+      { name: "WizardLM-7B-V1.0", size: "4.0GB", description: "Microsoft's wizard model" },
+      { name: "Vicuna-7B-v1.5-16K", size: "4.1GB", description: "Extended context Vicuna" }
     ],
     code: [
       { name: "CodeLlama-7B-Instruct", size: "3.8GB", description: "Instruction-tuned code specialist" },
@@ -242,7 +344,13 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "SantaCoder-7B", size: "4.1GB", description: "BigCode's multilingual coder" },
       { name: "Replit-Code-7B", size: "4.0GB", description: "Replit's code completion model" },
       { name: "Code-Alpaca-7B", size: "3.9GB", description: "Stanford's code instruction model" },
-      { name: "UnixCoder-7B", size: "4.0GB", description: "Microsoft's large code model" }
+      { name: "UnixCoder-7B", size: "4.0GB", description: "Microsoft's large code model" },
+      { name: "CodeGeeX2-6B", size: "3.8GB", description: "Tsinghua's multilingual code model" },
+      { name: "StarCoder-Base-7B", size: "4.0GB", description: "Base StarCoder model" },
+      { name: "CodeT5p-220m", size: "0.9GB", description: "Compact CodeT5+ model" },
+      { name: "PLBART-base", size: "1.2GB", description: "Programming language BART" },
+      { name: "CodeBERT-base-MLM", size: "0.5GB", description: "Masked language model for code" },
+      { name: "GraphCodeBERT-base", size: "0.5GB", description: "Code with data flow" }
     ],
     chat: [
       { name: "Vicuna-7B-v1.5", size: "3.9GB", description: "Enhanced conversational model" },
@@ -254,7 +362,12 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Wizard-Vicuna-7B", size: "4.1GB", description: "Combined instruction model" },
       { name: "Manticore-7B", size: "4.0GB", description: "Multi-domain chat model" },
       { name: "Airoboros-7B", size: "4.1GB", description: "Context-aware chat model" },
-      { name: "Samantha-1.2-7B", size: "4.0GB", description: "Empathetic AI assistant" }
+      { name: "Samantha-1.2-7B", size: "4.0GB", description: "Empathetic AI assistant" },
+      { name: "Hermes-7B", size: "4.0GB", description: "NousResearch assistant" },
+      { name: "OpenAssistant-7B", size: "4.1GB", description: "LAION's open assistant" },
+      { name: "StableVicuna-13B", size: "7.2GB", description: "Stability AI's Vicuna variant" },
+      { name: "FastChat-T5-3B", size: "3.0GB", description: "LMSYS chat model" },
+      { name: "Phoenix-7B", size: "4.0GB", description: "FreedomIntelligence model" }
     ],
     reasoning: [
       { name: "MetaMath-7B", size: "3.9GB", description: "Mathematical problem solving" },
@@ -262,14 +375,23 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "WizardMath-7B-V1.1", size: "4.0GB", description: "Enhanced math reasoning" },
       { name: "MAmmoTH-7B", size: "4.1GB", description: "Mathematical reasoning model" },
       { name: "Orca-2-7B", size: "4.2GB", description: "Microsoft's reasoning model" },
-      { name: "OpenOrca-7B", size: "4.0GB", description: "Open-source Orca variant" }
+      { name: "OpenOrca-7B", size: "4.0GB", description: "Open-source Orca variant" },
+      { name: "Platypus2-7B", size: "4.1GB", description: "STEM fine-tuned model" },
+      { name: "Goat-7B-Delta", size: "4.0GB", description: "Arithmetic specialist" },
+      { name: "RFT-7B", size: "4.1GB", description: "Rejection sampling fine-tuned" },
+      { name: "CAMEL-7B", size: "4.0GB", description: "Communicative agent model" }
     ],
     multilingual: [
       { name: "Qwen-7B", size: "4.0GB", description: "Alibaba's multilingual foundation" },
       { name: "Baichuan2-7B", size: "4.1GB", description: "Chinese-English bilingual" },
       { name: "InternLM-7B", size: "4.0GB", description: "Shanghai AI Lab multilingual" },
       { name: "Chinese-LLaMA-2-7B", size: "4.0GB", description: "Chinese-optimized Llama" },
-      { name: "Vigogne-7B", size: "4.1GB", description: "French instruction model" }
+      { name: "Vigogne-7B", size: "4.1GB", description: "French instruction model" },
+      { name: "Polyglot-Ko-12.8B", size: "7.0GB", description: "Large Korean model" },
+      { name: "Japanese-StableLM-Instruct-7B", size: "4.1GB", description: "Japanese instruction model" },
+      { name: "Arabic-Alpaca-7B", size: "4.0GB", description: "Arabic instruction model" },
+      { name: "Hebrew-Alpaca-7B", size: "4.1GB", description: "Hebrew language model" },
+      { name: "Vietnamese-Alpaca-7B", size: "4.0GB", description: "Vietnamese instruction model" }
     ]
   },
   good: {
@@ -293,7 +415,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Nous-Hermes-2-13B", size: "7.4GB", description: "Enhanced Hermes model" },
       { name: "OpenOrca-13B", size: "7.2GB", description: "Open-source Orca recreation" },
       { name: "Airoboros-13B", size: "7.3GB", description: "Context-aware large model" },
-      { name: "MythoMax-13B", size: "7.2GB", description: "Roleplay-optimized model" }
+      { name: "MythoMax-13B", size: "7.2GB", description: "Roleplay-optimized model" },
+      { name: "Chronos-13B", size: "7.4GB", description: "Time-aware large model" },
+      { name: "Huginn-13B-v4", size: "7.3GB", description: "Norse mythology large model" },
+      { name: "Manticore-13B", size: "7.2GB", description: "Multi-domain large chat" },
+      { name: "Samantha-1.11-13B", size: "7.4GB", description: "Empathetic large assistant" },
+      { name: "OpenHermes-2.5-13B", size: "7.3GB", description: "Teknium's large assistant" },
+      { name: "NeuralBeagle-14B", size: "8.0GB", description: "Merged large model" },
+      { name: "StableBeluga-13B", size: "7.4GB", description: "Stability AI's large chat" },
+      { name: "Dolphin-2.6-13B", size: "7.3GB", description: "Eric Hartford's large model" },
+      { name: "Zephyr-13B-beta", size: "7.4GB", description: "HuggingFace's large chat" },
+      { name: "Neural-Chat-13B-v3", size: "7.3GB", description: "Intel's large chat model" }
     ],
     code: [
       { name: "CodeLlama-13B-Instruct", size: "7.3GB", description: "Large code generation model" },
@@ -305,7 +437,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "CodeLlama-13B-Python", size: "7.4GB", description: "Python-specialized CodeLlama" },
       { name: "WizardCoder-Python-13B", size: "7.3GB", description: "Python coding wizard" },
       { name: "InstructCodeT5p-16B", size: "8.9GB", description: "Large instruction code model" },
-      { name: "CodeGen2-16B", size: "8.7GB", description: "Salesforce's large code model" }
+      { name: "CodeGen2-16B", size: "8.7GB", description: "Salesforce's large code model" },
+      { name: "StarCoder2-15B", size: "8.5GB", description: "Next-gen StarCoder" },
+      { name: "Replit-Code-13B", size: "7.4GB", description: "Large Replit code model" },
+      { name: "SantaCoder-15B", size: "8.3GB", description: "Large multilingual coder" },
+      { name: "Code-Alpaca-13B", size: "7.2GB", description: "Large code instruction model" },
+      { name: "UnixCoder-13B", size: "7.3GB", description: "Large Unix code model" },
+      { name: "CodeGeeX2-13B", size: "7.4GB", description: "Large multilingual code model" },
+      { name: "PLBART-large", size: "1.5GB", description: "Large programming BART" },
+      { name: "CodeT5-large", size: "3.0GB", description: "Large CodeT5 model" },
+      { name: "InCoder-15B", size: "8.4GB", description: "Large code infilling model" },
+      { name: "PolyCoder-15B", size: "8.3GB", description: "Large multilingual coder" }
     ],
     chat: [
       { name: "ChatGLM2-12B", size: "6.8GB", description: "Large bilingual chat model" },
@@ -317,7 +459,12 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Manticore-13B", size: "7.3GB", description: "Multi-domain large chat" },
       { name: "Airoboros-L2-13B", size: "7.2GB", description: "Llama-2 based chat model" },
       { name: "Chronos-13B", size: "7.3GB", description: "Time-aware chat model" },
-      { name: "Huginn-13B", size: "7.2GB", description: "Norse mythology themed model" }
+      { name: "Huginn-13B", size: "7.2GB", description: "Norse mythology themed model" },
+      { name: "OpenBuddy-13B", size: "7.3GB", description: "Large cross-lingual assistant" },
+      { name: "Baize-13B", size: "7.2GB", description: "Large self-chat model" },
+      { name: "Phoenix-13B", size: "7.4GB", description: "Large FreedomIntelligence model" },
+      { name: "GPT4All-13B-snoozy", size: "7.3GB", description: "Sleepy Nomic AI model" },
+      { name: "Koala-13B", size: "7.1GB", description: "Large Berkeley dialogue model" }
     ],
     multimodal: [
       { name: "LLaVA-13B", size: "7.5GB", description: "Large vision-language model" },
@@ -329,7 +476,12 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Otter-13B", size: "7.4GB", description: "Multi-modal instruction tuned" },
       { name: "mPLUG-Owl-14B", size: "8.0GB", description: "Alibaba's multimodal model" },
       { name: "InternLM-XComposer-7B", size: "7.0GB", description: "Vision-language composition" },
-      { name: "Qwen-VL-7B", size: "7.2GB", description: "Qwen vision-language model" }
+      { name: "Qwen-VL-7B", size: "7.2GB", description: "Qwen vision-language model" },
+      { name: "CogVLM-17B", size: "10.0GB", description: "Tsinghua's vision-language model" },
+      { name: "Yi-VL-6B", size: "6.5GB", description: "01.AI's vision-language model" },
+      { name: "DeepSeek-VL-7B", size: "7.3GB", description: "DeepSeek's multimodal model" },
+      { name: "InternVL-Chat-V1.5", size: "8.2GB", description: "Multimodal chat model" },
+      { name: "MiniCPM-V-2", size: "2.8GB", description: "Efficient multimodal model" }
     ],
     reasoning: [
       { name: "WizardMath-13B", size: "7.3GB", description: "Advanced mathematical reasoning" },
@@ -338,14 +490,22 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "MAmmoTH-13B", size: "7.3GB", description: "Large mathematical reasoning model" },
       { name: "Abel-13B", size: "7.4GB", description: "Advanced reasoning capabilities" },
       { name: "Goat-13B", size: "7.2GB", description: "Arithmetic reasoning specialist" },
-      { name: "OpenOrca-Platypus-13B", size: "7.3GB", description: "Combined reasoning model" }
+      { name: "OpenOrca-Platypus-13B", size: "7.3GB", description: "Combined reasoning model" },
+      { name: "RFT-13B", size: "7.4GB", description: "Rejection sampling fine-tuned" },
+      { name: "CAMEL-13B", size: "7.3GB", description: "Communicative agent reasoning" },
+      { name: "ToRA-13B", size: "7.2GB", description: "Tool-integrated reasoning" }
     ],
     multilingual: [
       { name: "Qwen-14B", size: "7.8GB", description: "Alibaba's large multilingual" },
       { name: "Baichuan2-13B", size: "7.5GB", description: "Large Chinese-English model" },
       { name: "InternLM-20B", size: "11.0GB", description: "Shanghai AI Lab's large model" },
       { name: "Chinese-Alpaca-Plus-13B", size: "7.4GB", description: "Enhanced Chinese model" },
-      { name: "Polyglot-Ko-13B", size: "7.3GB", description: "Large Korean model" }
+      { name: "Polyglot-Ko-13B", size: "7.3GB", description: "Large Korean model" },
+      { name: "Japanese-StableLM-Instruct-13B", size: "7.4GB", description: "Large Japanese model" },
+      { name: "Arabic-13B", size: "7.3GB", description: "Large Arabic model" },
+      { name: "Hebrew-13B", size: "7.4GB", description: "Large Hebrew model" },
+      { name: "Vietnamese-13B", size: "7.3GB", description: "Large Vietnamese model" },
+      { name: "Thai-13B", size: "7.2GB", description: "Large Thai model" }
     ]
   },
   high: {
@@ -367,7 +527,19 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "NeuralBeagle-14B", size: "8.0GB", description: "MLP KAT merged model" },
       { name: "Goliath-120B (4-bit)", size: "60.0GB", description: "Large merged model" },
       { name: "Xwin-LM-70B (8-bit)", size: "38.5GB", description: "Xwin team's large model" },
-      { name: "Airoboros-L2-70B (8-bit)", size: "38.0GB", description: "Large context model" }
+      { name: "Airoboros-L2-70B (8-bit)", size: "38.0GB", description: "Large context model" },
+      { name: "CodeLlama-34B", size: "19.0GB", description: "Large code model" },
+      { name: "WizardLM-70B (8-bit)", size: "38.2GB", description: "Large instruction model" },
+      { name: "Platypus2-70B (8-bit)", size: "38.0GB", description: "Large STEM model" },
+      { name: "OpenOrca-Platypus-13B", size: "7.3GB", description: "Reasoning specialist" },
+      { name: "MythoMax-L2-13B", size: "7.4GB", description: "Roleplay optimized" },
+      { name: "Dolphin-2.7-Mixtral-8x7B", size: "26.9GB", description: "Latest Dolphin Mixtral" },
+      { name: "OpenHermes-2.5-Mixtral-8x7B", size: "26.9GB", description: "Teknium's Mixtral model" },
+      { name: "NousResearch-Nous-Capybara-34B", size: "19.4GB", description: "Conversational model" },
+      { name: "Bagel-34B", size: "19.3GB", description: "Jondurbin's merged model" },
+      { name: "Yi-34B-200K", size: "19.7GB", description: "Extended context Yi model" },
+      { name: "DeepSeek-LLM-67B-Chat", size: "35.2GB", description: "DeepSeek's large chat model" },
+      { name: "Qwen-72B-Chat", size: "36.5GB", description: "Alibaba's chat model" }
     ],
     code: [
       { name: "CodeLlama-34B-Instruct", size: "19.0GB", description: "Large specialized coder" },
@@ -379,7 +551,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "CodeLlama-34B-Python", size: "19.1GB", description: "Python-specialized large model" },
       { name: "WizardCoder-Python-34B", size: "19.2GB", description: "Large Python specialist" },
       { name: "StarCoder-15.5B", size: "8.8GB", description: "Enhanced StarCoder" },
-      { name: "Code-Alpaca-34B", size: "18.9GB", description: "Large code instruction model" }
+      { name: "Code-Alpaca-34B", size: "18.9GB", description: "Large code instruction model" },
+      { name: "CodeGen2.5-7B", size: "4.0GB", description: "Improved CodeGen model" },
+      { name: "InstructCodeT5p-16B", size: "8.9GB", description: "Large instruction code model" },
+      { name: "SantaCoder-15B", size: "8.4GB", description: "Large multilingual coder" },
+      { name: "Replit-Code-34B", size: "19.0GB", description: "Large Replit model" },
+      { name: "CodeT5p-16B-multi", size: "8.8GB", description: "Multilingual CodeT5+" },
+      { name: "UnixCoder-34B", size: "19.1GB", description: "Large Unix code model" },
+      { name: "CodeGeeX2-6B", size: "3.8GB", description: "Tsinghua's code model" },
+      { name: "PLBART-large-multi", size: "2.0GB", description: "Multilingual programming BART" },
+      { name: "InCoder-6.7B", size: "6.7GB", description: "Code infilling model" },
+      { name: "PolyCoder-2.7B", size: "2.7GB", description: "Multilingual code model" }
     ],
     chat: [
       { name: "Vicuna-33B", size: "18.5GB", description: "Large conversational model" },
@@ -389,7 +571,14 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "WizardLM-30B", size: "17.0GB", description: "Large instruction model" },
       { name: "Nous-Hermes-Llama2-70B (8-bit)", size: "38.2GB", description: "Large Hermes variant" },
       { name: "Airoboros-65B (4-bit)", size: "33.5GB", description: "Large context chat model" },
-      { name: "MythoMax-L2-13B", size: "7.4GB", description: "Roleplay optimized" }
+      { name: "MythoMax-L2-13B", size: "7.4GB", description: "Roleplay optimized" },
+      { name: "ChatGLM3-32B", size: "18.0GB", description: "Large bilingual chat" },
+      { name: "Baichuan2-53B", size: "27.0GB", description: "Large Chinese chat model" },
+      { name: "InternLM-Chat-20B", size: "11.0GB", description: "Shanghai AI's chat model" },
+      { name: "Qwen-72B-Chat", size: "36.5GB", description: "Alibaba's flagship chat" },
+      { name: "Yi-34B-Chat-200K", size: "19.8GB", description: "Extended context chat" },
+      { name: "DeepSeek-Chat-67B", size: "35.1GB", description: "DeepSeek's large chat" },
+      { name: "Nous-Capybara-34B", size: "19.3GB", description: "Conversational specialist" }
     ],
     reasoning: [
       { name: "WizardMath-70B (8-bit)", size: "38.5GB", description: "Premier math reasoning" },
@@ -397,7 +586,11 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Goat-70B (8-bit)", size: "35.0GB", description: "Arithmetic reasoning specialist" },
       { name: "MAmmoTH-70B (8-bit)", size: "38.2GB", description: "Large mathematical model" },
       { name: "Orca-2-13B", size: "7.4GB", description: "Microsoft's reasoning model" },
-      { name: "Abel-70B (8-bit)", size: "38.1GB", description: "Large reasoning model" }
+      { name: "Abel-70B (8-bit)", size: "38.1GB", description: "Large reasoning model" },
+      { name: "ToRA-70B (8-bit)", size: "38.0GB", description: "Tool-integrated reasoning" },
+      { name: "RFT-70B (8-bit)", size: "38.3GB", description: "Rejection sampling fine-tuned" },
+      { name: "CAMEL-70B (8-bit)", size: "38.2GB", description: "Communicative agent reasoning" },
+      { name: "OpenOrca-Platypus-13B", size: "7.3GB", description: "Combined reasoning model" }
     ],
     multimodal: [
       { name: "LLaVA-34B", size: "19.0GB", description: "Large vision-language model" },
@@ -405,13 +598,33 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "Qwen-VL-Chat", size: "9.6GB", description: "Alibaba's multimodal chat model" },
       { name: "LLaVA-1.5-34B", size: "19.2GB", description: "Enhanced large multimodal" },
       { name: "InstructBLIP-FlanT5-XXL", size: "12.0GB", description: "Large vision instruction" },
-      { name: "BLIP-2-OPT-6.7B", size: "7.0GB", description: "Vision-language with OPT" }
+      { name: "BLIP-2-OPT-6.7B", size: "7.0GB", description: "Vision-language with OPT" },
+      { name: "Yi-VL-34B", size: "19.5GB", description: "01.AI's large multimodal" },
+      { name: "DeepSeek-VL-67B", size: "35.0GB", description: "Large multimodal model" },
+      { name: "InternVL-Chat-V1.5-26B", size: "14.0GB", description: "Large multimodal chat" },
+      { name: "MiniCPM-Llama3-V-2_5", size: "8.1GB", description: "Efficient multimodal" }
     ],
     multilingual: [
       { name: "Qwen-72B", size: "36.0GB", description: "Alibaba's flagship multilingual" },
       { name: "Yi-34B-200K", size: "19.7GB", description: "Long context Yi model" },
       { name: "Baichuan2-53B", size: "27.0GB", description: "Large Chinese model" },
-      { name: "InternLM-20B", size: "11.0GB", description: "Shanghai AI's large model" }
+      { name: "InternLM-20B", size: "11.0GB", description: "Shanghai AI's large model" },
+      { name: "Chinese-Mixtral-8x7B", size: "26.9GB", description: "Chinese Mixtral variant" },
+      { name: "Polyglot-Ko-30B", size: "17.0GB", description: "Large Korean model" },
+      { name: "Japanese-Mixtral-8x7B", size: "26.9GB", description: "Japanese Mixtral" },
+      { name: "Arabic-Mixtral-8x7B", size: "26.9GB", description: "Arabic Mixtral variant" },
+      { name: "Vigogne-34B", size: "19.2GB", description: "Large French model" },
+      { name: "SEA-LION-70B", size: "38.0GB", description: "Southeast Asian model" }
+    ],
+    specialized: [
+      { name: "Med-Llama-70B", size: "38.0GB", description: "Medical specialist model" },
+      { name: "Legal-Llama-70B", size: "38.1GB", description: "Legal domain specialist" },
+      { name: "Finance-Llama-70B", size: "38.0GB", description: "Financial specialist" },
+      { name: "Science-Llama-70B", size: "38.2GB", description: "Scientific research model" },
+      { name: "Code-Mixtral-8x7B", size: "26.9GB", description: "Code-specialized Mixtral" },
+      { name: "Math-Mixtral-8x7B", size: "26.9GB", description: "Mathematics Mixtral" },
+      { name: "Bio-Llama-70B", size: "38.1GB", description: "Biomedical specialist" },
+      { name: "Chem-Llama-70B", size: "38.0GB", description: "Chemistry specialist" }
     ]
   },
   ultra_high: {
@@ -431,7 +644,21 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "PaLM-540B (4-bit)", size: "135GB", description: "Google's pathways model" },
       { name: "Chinchilla-70B", size: "140GB", description: "DeepMind's compute-optimal" },
       { name: "Gopher-280B (4-bit)", size: "70GB", description: "DeepMind's large model" },
-      { name: "Megatron-Turing-530B (4-bit)", size: "132GB", description: "NVIDIA-Microsoft collaboration" }
+      { name: "Megatron-Turing-530B (4-bit)", size: "132GB", description: "NVIDIA-Microsoft collaboration" },
+      { name: "GPT-4-Turbo (hypothetical)", size: "200GB", description: "OpenAI's flagship model" },
+      { name: "Claude-3-Opus (hypothetical)", size: "180GB", description: "Anthropic's largest model" },
+      { name: "Gemini-Ultra (hypothetical)", size: "220GB", description: "Google's flagship model" },
+      { name: "LaMDA-137B", size: "274GB", description: "Google's dialogue model" },
+      { name: "PaLM-2-Unicorn", size: "340GB", description: "Google's largest PaLM-2" },
+      { name: "Wu Dao 2.0", size: "300GB", description: "Beijing Academy's trillion-parameter model" },
+      { name: "Pangu-Σ", size: "280GB", description: "Huawei's large model" },
+      { name: "GLM-130B", size: "260GB", description: "Tsinghua's general language model" },
+      { name: "Ernie-3.0-Titan", size: "320GB", description: "Baidu's large model" },
+      { name: "Yuan-2.0-102B", size: "204GB", description: "Inspur's large model" },
+      { name: "Baichuan-2-192B", size: "384GB", description: "Baichuan's largest model" },
+      { name: "InternLM-123B", size: "246GB", description: "Shanghai AI Lab's flagship" },
+      { name: "Skywork-13B-Math", size: "26GB", description: "Kunlun's math specialist" },
+      { name: "DeepSeek-V2-236B", size: "472GB", description: "DeepSeek's next-gen model" }
     ],
     code: [
       { name: "CodeLlama-34B", size: "68GB", description: "Full precision code model" },
@@ -443,7 +670,17 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "AlphaCode-41B", size: "82GB", description: "DeepMind's competitive programming" },
       { name: "PolyCoder-160B (8-bit)", size: "80GB", description: "Large multilingual coder" },
       { name: "InCoder-175B (8-bit)", size: "87GB", description: "Large code infilling" },
-      { name: "CodeGen-16B", size: "32GB", description: "Large Salesforce model" }
+      { name: "CodeGen-16B", size: "32GB", description: "Large Salesforce model" },
+      { name: "StarCoder2-15B", size: "30GB", description: "Next-generation StarCoder" },
+      { name: "WizardCoder-Python-34B", size: "68GB", description: "Python specialist large" },
+      { name: "Phind-CodeLlama-34B", size: "68GB", description: "Code search specialist" },
+      { name: "Magicoder-S-DS-6.7B", size: "13.4GB", description: "OSS-Instruct code model" },
+      { name: "CodeQwen-7B", size: "14GB", description: "Alibaba's code model" },
+      { name: "DeepSeek-Coder-6.7B", size: "13.4GB", description: "DeepSeek's medium coder" },
+      { name: "Code-Mixtral-8x7B", size: "54GB", description: "Code-specialized Mixtral" },
+      { name: "StarCoder2-7B", size: "14GB", description: "Medium StarCoder2" },
+      { name: "CodeLlama-70B", size: "140GB", description: "Largest CodeLlama" },
+      { name: "WizardCoder-15B", size: "30GB", description: "Medium WizardCoder" }
     ],
     reasoning: [
       { name: "WizardMath-70B", size: "130GB", description: "Full precision mathematics" },
@@ -453,7 +690,14 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "MAmmoTH-70B", size: "130GB", description: "Large mathematical specialist" },
       { name: "Minerva-540B (4-bit)", size: "135GB", description: "Google's math specialist" },
       { name: "Galactica-120B", size: "240GB", description: "Meta's scientific model" },
-      { name: "PaLM-2-Unicorn", size: "340GB", description: "Google's reasoning flagship" }
+      { name: "PaLM-2-Unicorn", size: "340GB", description: "Google's reasoning flagship" },
+      { name: "ToRA-70B", size: "130GB", description: "Tool-integrated reasoning" },
+      { name: "RFT-70B", size: "131GB", description: "Rejection sampling fine-tuned" },
+      { name: "CAMEL-70B", size: "130GB", description: "Communicative agent reasoning" },
+      { name: "Abel-70B", size: "132GB", description: "Advanced reasoning model" },
+      { name: "DeepSeek-Math-70B", size: "130GB", description: "Mathematical reasoning specialist" },
+      { name: "Llemma-70B", size: "130GB", description: "Mathematical language model" },
+      { name: "MathCoder-70B", size: "131GB", description: "Code-assisted math reasoning" }
     ],
     multimodal: [
       { name: "Flamingo-80B", size: "160GB", description: "Large multimodal model" },
@@ -465,7 +709,12 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "GPT-4V (hypothetical)", size: "200GB", description: "OpenAI's vision model" },
       { name: "Flamingo-Chinchilla-70B", size: "140GB", description: "DeepMind's multimodal" },
       { name: "KOSMOS-2-175B (8-bit)", size: "87GB", description: "Microsoft's multimodal" },
-      { name: "Bard-Gemini-Ultra", size: "175GB", description: "Google's multimodal flagship" }
+      { name: "Bard-Gemini-Ultra", size: "175GB", description: "Google's multimodal flagship" },
+      { name: "LLaVA-1.6-34B", size: "68GB", description: "Latest LLaVA version" },
+      { name: "Yi-VL-34B", size: "68GB", description: "01.AI's large multimodal" },
+      { name: "DeepSeek-VL-67B", size: "134GB", description: "DeepSeek's large multimodal" },
+      { name: "InternVL-Chat-V1.5-40B", size: "80GB", description: "Large multimodal chat" },
+      { name: "MiniCPM-V-2.6", size: "8GB", description: "Efficient multimodal model" }
     ],
     multilingual: [
       { name: "BLOOM-176B", size: "352GB", description: "BigScience's multilingual flagship" },
@@ -473,7 +722,16 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "XLM-R-XXL", size: "48GB", description: "Cross-lingual representation" },
       { name: "mGPT-175B (8-bit)", size: "87GB", description: "Multilingual GPT large" },
       { name: "PaLM-2-Bison", size: "62GB", description: "Google's multilingual model" },
-      { name: "Polyglot-Ko-30B", size: "60GB", description: "Large Korean model" }
+      { name: "Polyglot-Ko-30B", size: "60GB", description: "Large Korean model" },
+      { name: "Chinese-BLOOM-176B", size: "352GB", description: "Chinese-optimized BLOOM" },
+      { name: "Japanese-GPT-175B", size: "350GB", description: "Large Japanese model" },
+      { name: "Arabic-GPT-175B", size: "350GB", description: "Large Arabic model" },
+      { name: "European-GPT-175B", size: "350GB", description: "European languages model" },
+      { name: "Indic-GPT-175B", size: "350GB", description: "Indian languages model" },
+      { name: "SEA-GPT-175B", size: "350GB", description: "Southeast Asian model" },
+      { name: "African-GPT-175B", size: "350GB", description: "African languages model" },
+      { name: "Multilingual-Mixtral-8x22B", size: "176GB", description: "Multilingual Mixtral" },
+      { name: "Global-LLM-200B", size: "400GB", description: "Universal multilingual model" }
     ],
     specialized: [
       { name: "Galactica-120B", size: "240GB", description: "Scientific knowledge model" },
@@ -481,7 +739,16 @@ export const LLM_DATABASE: { [key: string]: ModelCategory } = {
       { name: "LegalBERT-175B (8-bit)", size: "87GB", description: "Legal domain specialist" },
       { name: "FinBERT-175B (8-bit)", size: "87GB", description: "Financial domain model" },
       { name: "BioBERT-175B (8-bit)", size: "87GB", description: "Biomedical specialist" },
-      { name: "SciBERT-175B (8-bit)", size: "87GB", description: "Scientific literature model" }
+      { name: "SciBERT-175B (8-bit)", size: "87GB", description: "Scientific literature model" },
+      { name: "ChemBERT-175B (8-bit)", size: "87GB", description: "Chemistry specialist" },
+      { name: "EduBERT-175B (8-bit)", size: "87GB", description: "Educational specialist" },
+      { name: "NewsGPT-175B (8-bit)", size: "87GB", description: "News and journalism model" },
+      { name: "Creative-GPT-175B (8-bit)", size: "87GB", description: "Creative writing specialist" },
+      { name: "TechGPT-175B (8-bit)", size: "87GB", description: "Technology domain model" },
+      { name: "BusinessGPT-175B (8-bit)", size: "87GB", description: "Business domain specialist" },
+      { name: "AcademicGPT-175B (8-bit)", size: "87GB", description: "Academic research model" },
+      { name: "SocialGPT-175B (8-bit)", size: "87GB", description: "Social media specialist" },
+      { name: "GameGPT-175B (8-bit)", size: "87GB", description: "Gaming domain model" }
     ]
   }
 };
