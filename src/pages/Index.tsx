@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -19,6 +18,10 @@ import { KeyboardShortcuts } from '@/components/KeyboardShortcuts';
 import { Stats } from '@/components/Stats';
 import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings, ArrowRight, Star } from 'lucide-react';
 import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@/utils/llmData';
+import { ModelComparison } from '@/components/ModelComparison';
+import { DownloadManager } from '@/components/DownloadManager';
+import { PerformanceTips } from '@/components/PerformanceTips';
+import { ModelFavorites } from '@/components/ModelFavorites';
 
 const Index = () => {
   const [selectedDevice, setSelectedDevice] = useState<'laptop' | 'mobile'>('laptop');
@@ -188,8 +191,11 @@ const Index = () => {
 
         {/* Main Tabs */}
         <Tabs defaultValue="recommendations" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 lg:w-[600px] mx-auto h-12">
+          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 lg:w-[800px] mx-auto h-12">
             <TabsTrigger value="recommendations" className="text-sm">Models</TabsTrigger>
+            <TabsTrigger value="comparison" className="text-sm">Compare</TabsTrigger>
+            <TabsTrigger value="favorites" className="text-sm">Favorites</TabsTrigger>
+            <TabsTrigger value="downloads" className="text-sm">Downloads</TabsTrigger>
             <TabsTrigger value="quantization" className="text-sm">Quantization</TabsTrigger>
             <TabsTrigger value="analyzer" className="text-sm">Analyzer</TabsTrigger>
             <TabsTrigger value="explorer" className="text-sm">Explorer</TabsTrigger>
@@ -202,6 +208,18 @@ const Index = () => {
               deviceType={selectedDevice}
               recommendations={recommendations}
             />
+          </TabsContent>
+
+          <TabsContent value="comparison">
+            <ModelComparison />
+          </TabsContent>
+
+          <TabsContent value="favorites">
+            <ModelFavorites />
+          </TabsContent>
+
+          <TabsContent value="downloads">
+            <DownloadManager />
           </TabsContent>
 
           <TabsContent value="quantization">
@@ -229,6 +247,11 @@ const Index = () => {
             <PerformanceChart />
           </TabsContent>
         </Tabs>
+
+        {/* Performance Tips Section */}
+        <div className="mt-12">
+          <PerformanceTips />
+        </div>
 
         {/* FAQ Section */}
         <div className="mt-12">
