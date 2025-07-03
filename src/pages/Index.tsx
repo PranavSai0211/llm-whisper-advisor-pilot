@@ -13,7 +13,11 @@ import { QuantizationCalculator } from '@/components/QuantizationCalculator';
 import { DeviceAnalyzer } from '@/components/DeviceAnalyzer';
 import { PerformanceChart } from '@/components/PerformanceChart';
 import { ModelExplorer } from '@/components/ModelExplorer';
-import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings } from 'lucide-react';
+import { DarkModeToggle } from '@/components/DarkModeToggle';
+import { FAQ } from '@/components/FAQ';
+import { KeyboardShortcuts } from '@/components/KeyboardShortcuts';
+import { Stats } from '@/components/Stats';
+import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings, ArrowRight, Star } from 'lucide-react';
 import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@/utils/llmData';
 
 const Index = () => {
@@ -37,42 +41,61 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white">
-        <div className="container mx-auto px-4 py-16 text-center">
-          <div className="flex justify-center mb-6">
-            <Brain className="h-16 w-16 animate-pulse" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 transition-colors">
+      <DarkModeToggle />
+      <KeyboardShortcuts />
+      
+      {/* Enhanced Hero Section */}
+      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container mx-auto px-4 py-20 text-center relative z-10">
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <Brain className="h-20 w-20 animate-pulse" />
+              <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 rounded-full w-8 h-8 flex items-center justify-center">
+                <Star className="h-4 w-4" />
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl font-bold mb-4">🧠 LLM Compatibility Advisor</h1>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Get personalized recommendations from <strong>150+ popular open source AI models</strong> with 
-            advanced quantization options and download sizes!
+          <h1 className="text-6xl font-bold mb-6 animate-fade-in">
+            🧠 LLM Compatibility Advisor
+          </h1>
+          <p className="text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
+            Discover the perfect AI model for your device from our curated collection of <strong>150+ popular open source models</strong>. 
+            Get instant recommendations with advanced quantization options and precise download sizes!
           </p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <Download className="h-4 w-4 mr-2" />
+          <div className="flex justify-center gap-4 flex-wrap mb-8">
+            <Badge variant="secondary" className="text-lg px-6 py-3 bg-white/20 hover:bg-white/30 transition-colors">
+              <Download className="h-5 w-5 mr-2" />
               Smart Downloads
             </Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <Settings className="h-4 w-4 mr-2" />
+            <Badge variant="secondary" className="text-lg px-6 py-3 bg-white/20 hover:bg-white/30 transition-colors">
+              <Settings className="h-5 w-5 mr-2" />
               Quantization Support
             </Badge>
-            <Badge variant="secondary" className="text-lg px-4 py-2">
-              <Zap className="h-4 w-4 mr-2" />
+            <Badge variant="secondary" className="text-lg px-6 py-3 bg-white/20 hover:bg-white/30 transition-colors">
+              <Zap className="h-5 w-5 mr-2" />
               Performance Optimized
             </Badge>
           </div>
+          <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+            Get Started Now
+            <ArrowRight className="h-5 w-5 ml-2" />
+          </Button>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Quick Device Analyzer */}
-        <Card className="mb-8 border-2 border-blue-200 shadow-lg">
-          <CardHeader className="bg-gradient-to-r from-blue-100 to-indigo-100">
+        {/* Statistics Section */}
+        <Stats />
+
+        {/* Enhanced Quick Device Analyzer */}
+        <Card className="mb-8 border-2 border-blue-200 dark:border-blue-800 shadow-xl">
+          <CardHeader className="bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900">
             <CardTitle className="flex items-center text-2xl">
               <Cpu className="h-6 w-6 mr-2 text-blue-600" />
               Quick Device Analysis
+              <Badge variant="outline" className="ml-auto">AI Powered</Badge>
             </CardTitle>
           </CardHeader>
           <CardContent className="p-6">
@@ -81,7 +104,7 @@ const Index = () => {
               <div className="space-y-2">
                 <label className="text-sm font-medium">Device Type</label>
                 <Select value={selectedDevice} onValueChange={(value: 'laptop' | 'mobile') => setSelectedDevice(value)}>
-                  <SelectTrigger>
+                  <SelectTrigger className="h-12">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -108,7 +131,7 @@ const Index = () => {
                   placeholder="e.g., 8GB, 16GB, 32GB"
                   value={ramInput}
                   onChange={(e) => setRamInput(e.target.value)}
-                  className="font-mono"
+                  className="font-mono h-12 text-lg"
                 />
               </div>
 
@@ -116,7 +139,7 @@ const Index = () => {
               <div className="space-y-2">
                 <label className="text-sm font-medium">Operating System</label>
                 <Select value={selectedOS} onValueChange={setSelectedOS}>
-                  <SelectTrigger>
+                  <SelectTrigger className="h-12">
                     <SelectValue placeholder="Select OS" />
                   </SelectTrigger>
                   <SelectContent>
@@ -128,25 +151,35 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Quick Results */}
+            {/* Enhanced Quick Results */}
             {ramValue && (
-              <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-semibold text-lg">💡 Quick Recommendation</h3>
-                  <Badge variant="outline" className="text-sm">
+              <div className="mt-6 p-6 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/30 dark:to-blue-900/30 rounded-lg border border-green-200 dark:border-green-800">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-xl flex items-center">
+                    💡 AI Recommendation
+                    <Badge variant="secondary" className="ml-2">Personalized</Badge>
+                  </h3>
+                  <Badge variant="outline" className="text-sm bg-white dark:bg-gray-800">
                     {recommendations.performanceTier}
                   </Badge>
                 </div>
-                <p className="text-gray-700 mb-2">{recommendations.recommendation}</p>
-                <p className="text-sm text-gray-600">{recommendations.additionalInfo}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-3 text-lg">{recommendations.recommendation}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{recommendations.additionalInfo}</p>
                 
-                {/* RAM Usage Indicator */}
+                {/* Enhanced RAM Usage Indicator */}
                 <div className="mt-4">
-                  <div className="flex justify-between text-sm mb-1">
-                    <span>Recommended Usage</span>
-                    <span>{Math.min(ramValue * 0.8, ramValue)}GB / {ramValue}GB</span>
+                  <div className="flex justify-between text-sm mb-2">
+                    <span className="font-medium">Recommended Usage</span>
+                    <span className="font-mono">{Math.min(ramValue * 0.8, ramValue)}GB / {ramValue}GB</span>
                   </div>
-                  <Progress value={(Math.min(ramValue * 0.8, ramValue) / ramValue) * 100} className="h-2" />
+                  <Progress 
+                    value={(Math.min(ramValue * 0.8, ramValue) / ramValue) * 100} 
+                    className="h-3"
+                  />
+                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                    <span>Conservative</span>
+                    <span>Optimal Performance Zone</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -155,12 +188,12 @@ const Index = () => {
 
         {/* Main Tabs */}
         <Tabs defaultValue="recommendations" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 lg:w-[600px] mx-auto">
-            <TabsTrigger value="recommendations">Models</TabsTrigger>
-            <TabsTrigger value="quantization">Quantization</TabsTrigger>
-            <TabsTrigger value="analyzer">Analyzer</TabsTrigger>
-            <TabsTrigger value="explorer">Explorer</TabsTrigger>
-            <TabsTrigger value="charts">Charts</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-5 lg:w-[600px] mx-auto h-12">
+            <TabsTrigger value="recommendations" className="text-sm">Models</TabsTrigger>
+            <TabsTrigger value="quantization" className="text-sm">Quantization</TabsTrigger>
+            <TabsTrigger value="analyzer" className="text-sm">Analyzer</TabsTrigger>
+            <TabsTrigger value="explorer" className="text-sm">Explorer</TabsTrigger>
+            <TabsTrigger value="charts" className="text-sm">Charts</TabsTrigger>
           </TabsList>
 
           <TabsContent value="recommendations">
@@ -197,6 +230,11 @@ const Index = () => {
           </TabsContent>
         </Tabs>
 
+        {/* FAQ Section */}
+        <div className="mt-12">
+          <FAQ />
+        </div>
+
         {/* Performance Tiers Reference */}
         <Card className="mt-8">
           <CardHeader>
@@ -208,15 +246,15 @@ const Index = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {Object.entries(PERFORMANCE_TIERS).map(([key, tier]) => (
-                <div key={key} className="p-4 border rounded-lg hover:shadow-md transition-shadow">
+                <div key={key} className="p-4 border rounded-lg hover:shadow-md transition-shadow bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="font-semibold">{tier.name}</h4>
                     <Badge variant="outline">{tier.ramRange}</Badge>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">{tier.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{tier.description}</p>
                   <div className="text-xs text-gray-500">
-                    <div>Use Cases: {tier.useCases.join(', ')}</div>
-                    <div className="mt-1">Examples: {tier.examples.slice(0, 2).join(', ')}</div>
+                    <div><strong>Use Cases:</strong> {tier.useCases.join(', ')}</div>
+                    <div className="mt-1"><strong>Examples:</strong> {tier.examples.slice(0, 2).join(', ')}</div>
                   </div>
                 </div>
               ))}
@@ -224,35 +262,38 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        {/* Footer */}
-        <div className="mt-12 text-center text-gray-600">
-          <Separator className="mb-6" />
-          <h3 className="text-lg font-semibold mb-4">🔗 Essential Download & Deployment Tools</h3>
+        {/* Enhanced Footer */}
+        <div className="mt-12 text-center text-gray-600 dark:text-gray-400">
+          <Separator className="mb-8" />
+          <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">🔗 Essential Download & Deployment Tools</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="space-y-2">
-              <h4 className="font-medium">📦 Easy Deployment</h4>
-              <ul className="text-sm space-y-1">
-                <li>• Ollama - CLI tool</li>
-                <li>• LM Studio - GUI app</li>
-                <li>• GPT4All - Desktop app</li>
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h4 className="font-medium text-lg mb-3">📦 Easy Deployment</h4>
+              <ul className="text-sm space-y-2">
+                <li>• <strong>Ollama</strong> - CLI tool for developers</li>
+                <li>• <strong>LM Studio</strong> - User-friendly GUI</li>
+                <li>• <strong>GPT4All</strong> - Cross-platform app</li>
               </ul>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-medium">🤗 Model Repositories</h4>
-              <ul className="text-sm space-y-1">
-                <li>• Hugging Face Hub</li>
-                <li>• TheBloke Quantized</li>
-                <li>• Awesome LLM List</li>
+            </Card>
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h4 className="font-medium text-lg mb-3">🤗 Model Repositories</h4>
+              <ul className="text-sm space-y-2">
+                <li>• <strong>Hugging Face Hub</strong> - Main repository</li>
+                <li>• <strong>TheBloke Quantized</strong> - Optimized models</li>
+                <li>• <strong>Model Collections</strong> - Curated lists</li>
               </ul>
-            </div>
-            <div className="space-y-2">
-              <h4 className="font-medium">⚡ Optimization</h4>
-              <ul className="text-sm space-y-1">
-                <li>• 4-bit: 75% less memory</li>
-                <li>• 8-bit: 50% less memory</li>
-                <li>• GPU acceleration</li>
+            </Card>
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <h4 className="font-medium text-lg mb-3">⚡ Optimization Tips</h4>
+              <ul className="text-sm space-y-2">
+                <li>• <strong>4-bit quantization:</strong> 75% memory savings</li>
+                <li>• <strong>8-bit quantization:</strong> 50% memory savings</li>
+                <li>• <strong>GPU acceleration:</strong> 10x faster inference</li>
               </ul>
-            </div>
+            </Card>
+          </div>
+          <div className="mt-8 text-sm text-gray-500">
+            <p>Built with ❤️ for the open source AI community</p>
           </div>
         </div>
       </div>
