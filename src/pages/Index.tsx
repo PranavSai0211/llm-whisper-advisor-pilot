@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -10,11 +11,9 @@ import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { ModelRecommendations } from '@/components/ModelRecommendations';
 import { QuantizationCalculator } from '@/components/QuantizationCalculator';
-import { DeviceAnalyzer } from '@/components/DeviceAnalyzer';
 import { PerformanceChart } from '@/components/PerformanceChart';
 import { ModelExplorer } from '@/components/ModelExplorer';
 import { DarkModeToggle } from '@/components/DarkModeToggle';
-import { FAQ } from '@/components/FAQ';
 import { KeyboardShortcuts } from '@/components/KeyboardShortcuts';
 import { Stats } from '@/components/Stats';
 import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings, ArrowRight, Star, Sparkles, TrendingUp, Shield } from 'lucide-react';
@@ -22,7 +21,7 @@ import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@
 import { ModelComparison } from '@/components/ModelComparison';
 import { DownloadManager } from '@/components/DownloadManager';
 import { PerformanceTips } from '@/components/PerformanceTips';
-import { ModelFavorites } from '@/components/ModelFavorites';
+import { ClusterRecommendations } from '@/components/ClusterRecommendations';
 
 const Index = () => {
   const [selectedDevice, setSelectedDevice] = useState<'laptop' | 'mobile'>('laptop');
@@ -239,15 +238,13 @@ const Index = () => {
 
           {/* Main Tabs */}
           <Tabs defaultValue="recommendations" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-4 lg:grid-cols-8 lg:w-[800px] mx-auto h-14 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900 dark:to-cyan-900">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 lg:w-[600px] mx-auto h-14 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900 dark:to-cyan-900">
               <TabsTrigger value="recommendations" className="text-sm font-medium">Models</TabsTrigger>
               <TabsTrigger value="comparison" className="text-sm font-medium">Compare</TabsTrigger>
-              <TabsTrigger value="favorites" className="text-sm font-medium">Favorites</TabsTrigger>
+              <TabsTrigger value="clusters" className="text-sm font-medium">Clusters</TabsTrigger>
               <TabsTrigger value="downloads" className="text-sm font-medium">Downloads</TabsTrigger>
               <TabsTrigger value="quantization" className="text-sm font-medium">Quantization</TabsTrigger>
-              <TabsTrigger value="analyzer" className="text-sm font-medium">Analyzer</TabsTrigger>
               <TabsTrigger value="explorer" className="text-sm font-medium">Explorer</TabsTrigger>
-              <TabsTrigger value="charts" className="text-sm font-medium">Charts</TabsTrigger>
             </TabsList>
 
             <TabsContent value="recommendations">
@@ -262,8 +259,8 @@ const Index = () => {
               <ModelComparison />
             </TabsContent>
 
-            <TabsContent value="favorites">
-              <ModelFavorites />
+            <TabsContent value="clusters">
+              <ClusterRecommendations ramValue={ramValue} deviceType={selectedDevice} />
             </TabsContent>
 
             <TabsContent value="downloads">
@@ -274,14 +271,6 @@ const Index = () => {
               <QuantizationCalculator ramValue={ramValue} />
             </TabsContent>
 
-            <TabsContent value="analyzer">
-              <DeviceAnalyzer 
-                ramValue={ramValue}
-                deviceType={selectedDevice}
-                operatingSystem={selectedOS}
-              />
-            </TabsContent>
-
             <TabsContent value="explorer">
               <ModelExplorer 
                 selectedTier={selectedTier}
@@ -290,20 +279,11 @@ const Index = () => {
                 onCategoryChange={setSelectedCategory}
               />
             </TabsContent>
-
-            <TabsContent value="charts">
-              <PerformanceChart />
-            </TabsContent>
           </Tabs>
 
           {/* Performance Tips Section */}
           <div className="mt-12">
             <PerformanceTips />
-          </div>
-
-          {/* FAQ Section */}
-          <div className="mt-12">
-            <FAQ />
           </div>
 
           {/* Performance Tiers Reference */}
