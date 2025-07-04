@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -8,7 +9,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Network, Cpu, Zap, Download, ExternalLink, Server, Users, Globe, Plus, Trash2, Upload, Calculator, GraduationCap, Building2 } from 'lucide-react';
+import { Network, Cpu, Zap, Download, ExternalLink, Server, Users, Globe, Plus, Trash2, Upload, Calculator, GraduationCap, Building2, Brain, Sparkles } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
 interface ClusterRecommendationsProps {
@@ -43,6 +44,18 @@ interface BulkClusterForm {
   clusterType: 'educational' | 'corporate' | 'research';
   totalUsers: number;
   deviceSpecs: string; // CSV format or JSON
+}
+
+interface LLMRecommendation {
+  name: string;
+  size: string;
+  quantization: string;
+  memoryUsage: number;
+  performance: 'Excellent' | 'Good' | 'Fair' | 'Limited';
+  concurrentUsers: number;
+  useCase: string[];
+  downloadSize: string;
+  category: 'General' | 'Coding' | 'Math' | 'Creative' | 'Educational';
 }
 
 export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommendationsProps) => {
@@ -82,6 +95,133 @@ export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommen
     ));
   };
 
+  const getLLMRecommendations = (avgRam: number, totalDevices: number): LLMRecommendation[] => {
+    const recommendations: LLMRecommendation[] = [];
+
+    if (avgRam >= 32) {
+      recommendations.push(
+        {
+          name: 'Llama 3.1 70B',
+          size: '70B parameters',
+          quantization: '4-bit',
+          memoryUsage: 42,
+          performance: 'Excellent',
+          concurrentUsers: Math.floor(totalDevices / 2),
+          useCase: ['Research', 'Advanced Q&A', 'Complex reasoning'],
+          downloadSize: '39GB',
+          category: 'General'
+        },
+        {
+          name: 'Mixtral 8x22B',
+          size: '22B x 8 experts',
+          quantization: '4-bit',
+          memoryUsage: 38,
+          performance: 'Excellent',
+          concurrentUsers: Math.floor(totalDevices / 2),
+          useCase: ['Multi-domain expertise', 'Professional tasks'],
+          downloadSize: '87GB',
+          category: 'General'
+        },
+        {
+          name: 'CodeLlama 34B',
+          size: '34B parameters',
+          quantization: '4-bit',
+          memoryUsage: 20,
+          performance: 'Excellent',
+          concurrentUsers: Math.floor(totalDevices / 1.5),
+          useCase: ['Advanced coding', 'Code review', 'Architecture'],
+          downloadSize: '19GB',
+          category: 'Coding'
+        }
+      );
+    } else if (avgRam >= 16) {
+      recommendations.push(
+        {
+          name: 'Llama 3.1 8B',
+          size: '8B parameters',
+          quantization: '4-bit',
+          memoryUsage: 5.2,
+          performance: 'Good',
+          concurrentUsers: Math.floor(totalDevices * 0.8),
+          useCase: ['General chat', 'Q&A', 'Text generation'],
+          downloadSize: '4.7GB',
+          category: 'General'
+        },
+        {
+          name: 'Mistral 7B Instruct',
+          size: '7B parameters',
+          quantization: '4-bit',
+          memoryUsage: 4.8,
+          performance: 'Good',
+          concurrentUsers: Math.floor(totalDevices * 0.9),
+          useCase: ['Instructions', 'Chat', 'Creative writing'],
+          downloadSize: '4.1GB',
+          category: 'General'
+        },
+        {
+          name: 'CodeLlama 13B',
+          size: '13B parameters',
+          quantization: '4-bit',
+          memoryUsage: 8.5,
+          performance: 'Good',
+          concurrentUsers: Math.floor(totalDevices * 0.6),
+          useCase: ['Code completion', 'Debugging', 'Code explanation'],
+          downloadSize: '7.3GB',
+          category: 'Coding'
+        },
+        {
+          name: 'WizardMath 7B',
+          size: '7B parameters',
+          quantization: '4-bit',
+          memoryUsage: 4.8,
+          performance: 'Good',
+          concurrentUsers: Math.floor(totalDevices * 0.9),
+          useCase: ['Math problems', 'STEM education', 'Problem solving'],
+          downloadSize: '4.1GB',
+          category: 'Math'
+        }
+      );
+    } else {
+      recommendations.push(
+        {
+          name: 'Phi-3 Mini',
+          size: '3.8B parameters',
+          quantization: '4-bit',
+          memoryUsage: 2.3,
+          performance: 'Fair',
+          concurrentUsers: totalDevices,
+          useCase: ['Basic chat', 'Simple Q&A', 'Learning'],
+          downloadSize: '2.2GB',
+          category: 'Educational'
+        },
+        {
+          name: 'TinyLlama 1.1B',
+          size: '1.1B parameters',
+          quantization: '4-bit',
+          memoryUsage: 0.8,
+          performance: 'Limited',
+          concurrentUsers: totalDevices,
+          useCase: ['Basic text completion', 'Simple tasks'],
+          downloadSize: '637MB',
+          category: 'Educational'
+        },
+        {
+          name: 'Gemma 2B',
+          size: '2B parameters',
+          quantization: '4-bit',
+          memoryUsage: 1.4,
+          performance: 'Fair',
+          concurrentUsers: totalDevices,
+          useCase: ['Educational tasks', 'Simple reasoning'],
+          downloadSize: '1.4GB',
+          category: 'Educational'
+        }
+      );
+    }
+
+    return recommendations;
+  };
+
   const calculateBulkRecommendations = () => {
     if (deviceList.length === 0) return;
 
@@ -91,6 +231,8 @@ export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommen
     const laptopCount = deviceList.filter(d => d.deviceType === 'laptop').reduce((sum, d) => sum + d.quantity, 0);
     const mobileCount = totalDevices - laptopCount;
 
+    const llmRecommendations = getLLMRecommendations(avgRam, totalDevices);
+
     const recommendations = {
       totalDevices,
       totalRam,
@@ -98,8 +240,7 @@ export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommen
       laptopCount,
       mobileCount,
       recommendedSetup: getBulkClusterSetup(totalRam, totalDevices, avgRam),
-      modelRecommendations: getBulkModelRecommendations(avgRam, totalDevices),
-      costEstimate: calculateCostEstimate(totalRam, totalDevices)
+      llmRecommendations
     };
 
     setBulkRecommendations(recommendations);
@@ -131,35 +272,6 @@ export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommen
         models: ['Phi-3 Mini', 'TinyLlama 1.1B', 'Llama 3.1 8B (quantized)', 'Gemma 2B']
       };
     }
-  };
-
-  const getBulkModelRecommendations = (avgRam: number, deviceCount: number) => {
-    const concurrent = Math.min(deviceCount, Math.floor(deviceCount / 4)); // Concurrent users estimate
-    
-    return {
-      primaryModel: avgRam >= 16 ? 'Llama 3.1 8B' : 'Phi-3 Mini',
-      concurrentUsers: concurrent,
-      loadBalancing: deviceCount > 20 ? 'Required' : 'Recommended',
-      redundancy: deviceCount > 50 ? 'High Availability Setup' : 'Standard Setup',
-      specializedModels: {
-        coding: ['CodeLlama 7B', 'StarCoder2 3B'],
-        math: ['MathCoder 7B', 'WizardMath 7B'],
-        general: ['Mistral 7B', 'Llama 3.1 8B']
-      }
-    };
-  };
-
-  const calculateCostEstimate = (totalRam: number, deviceCount: number) => {
-    const serverCost = Math.ceil(totalRam / 64) * 500; // $500 per 64GB server node
-    const networkingCost = deviceCount > 50 ? 2000 : deviceCount > 20 ? 1000 : 500;
-    const softwareCost = deviceCount * 10; // $10 per device for software
-    const maintenanceCost = (serverCost + networkingCost) * 0.2; // 20% annual maintenance
-
-    return {
-      initial: serverCost + networkingCost + softwareCost,
-      annual: maintenanceCost,
-      perDevice: Math.round((serverCost + networkingCost + softwareCost) / deviceCount)
-    };
   };
 
   const parseBulkDeviceSpecs = (csvData: string) => {
@@ -238,6 +350,27 @@ export const ClusterRecommendations = ({ ramValue, deviceType }: ClusterRecommen
       case 'Easy': return 'bg-green-100 text-green-800 border-green-300';
       case 'Medium': return 'bg-yellow-100 text-yellow-800 border-yellow-300';
       case 'Hard': return 'bg-red-100 text-red-800 border-red-300';
+      default: return 'bg-gray-100 text-gray-800 border-gray-300';
+    }
+  };
+
+  const getPerformanceColor = (performance: string) => {
+    switch (performance) {
+      case 'Excellent': return 'text-green-600 bg-green-100';
+      case 'Good': return 'text-blue-600 bg-blue-100';
+      case 'Fair': return 'text-yellow-600 bg-yellow-100';
+      case 'Limited': return 'text-red-600 bg-red-100';
+      default: return 'text-gray-600 bg-gray-100';
+    }
+  };
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case 'General': return 'bg-purple-100 text-purple-800 border-purple-300';
+      case 'Coding': return 'bg-blue-100 text-blue-800 border-blue-300';
+      case 'Math': return 'bg-green-100 text-green-800 border-green-300';
+      case 'Creative': return 'bg-pink-100 text-pink-800 border-pink-300';
+      case 'Educational': return 'bg-orange-100 text-orange-800 border-orange-300';
       default: return 'bg-gray-100 text-gray-800 border-gray-300';
     }
   };
@@ -377,7 +510,7 @@ Mobile Device 1,8,mobile,Android 13,30"
                   disabled={deviceList.length === 0}
                 >
                   <Calculator className="h-4 w-4 mr-2" />
-                  Analyze Cluster Requirements
+                  Analyze Cluster & Get LLM Recommendations
                 </Button>
 
                 {bulkRecommendations && (
@@ -409,24 +542,6 @@ Mobile Device 1,8,mobile,Android 13,30"
                         <div><strong>Scalability:</strong> {bulkRecommendations.recommendedSetup.scalability}</div>
                       </div>
                     </div>
-
-                    <div className="space-y-3">
-                      <h5 className="font-semibold text-blue-700 dark:text-blue-300">Cost Estimate</h5>
-                      <div className="grid grid-cols-3 gap-2 text-xs">
-                        <div className="text-center p-2 bg-white dark:bg-gray-800 rounded">
-                          <div className="font-medium">Initial</div>
-                          <div className="text-lg font-bold">${bulkRecommendations.costEstimate.initial.toLocaleString()}</div>
-                        </div>
-                        <div className="text-center p-2 bg-white dark:bg-gray-800 rounded">
-                          <div className="font-medium">Annual</div>
-                          <div className="text-lg font-bold">${bulkRecommendations.costEstimate.annual.toLocaleString()}</div>
-                        </div>
-                        <div className="text-center p-2 bg-white dark:bg-gray-800 rounded">
-                          <div className="font-medium">Per Device</div>
-                          <div className="text-lg font-bold">${bulkRecommendations.costEstimate.perDevice}</div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>
@@ -434,6 +549,91 @@ Mobile Device 1,8,mobile,Android 13,30"
           </CardContent>
         )}
       </Card>
+
+      {/* LLM Recommendations for Cluster */}
+      {bulkRecommendations && (
+        <Card className="border-2 border-emerald-200 dark:border-emerald-800">
+          <CardHeader className="bg-gradient-to-r from-emerald-50 to-cyan-50 dark:from-emerald-900 dark:to-cyan-900">
+            <CardTitle className="flex items-center">
+              <Brain className="h-6 w-6 mr-2 text-emerald-600" />
+              Recommended LLMs for Your Cluster
+              <Badge variant="outline" className="ml-auto bg-emerald-100 border-emerald-300">
+                {bulkRecommendations.llmRecommendations.length} Models
+              </Badge>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {bulkRecommendations.llmRecommendations.map((llm: LLMRecommendation, index: number) => (
+                <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300 border-2 hover:border-emerald-200">
+                  <div className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h4 className="font-semibold text-lg flex items-center">
+                          <Sparkles className="h-4 w-4 mr-2 text-emerald-500" />
+                          {llm.name}
+                        </h4>
+                        <p className="text-sm text-gray-600">{llm.size}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Badge className={getCategoryColor(llm.category)} variant="outline">
+                          {llm.category}
+                        </Badge>
+                        <Badge className={`${getPerformanceColor(llm.performance)} border`} variant="outline">
+                          {llm.performance}
+                        </Badge>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <div className="font-medium text-gray-700">Memory Usage</div>
+                        <div className="text-lg font-bold text-blue-600">{llm.memoryUsage}GB</div>
+                      </div>
+                      <div>
+                        <div className="font-medium text-gray-700">Download Size</div>
+                        <div className="text-lg font-bold text-purple-600">{llm.downloadSize}</div>
+                      </div>
+                      <div>
+                        <div className="font-medium text-gray-700">Concurrent Users</div>
+                        <div className="text-lg font-bold text-emerald-600">{llm.concurrentUsers}</div>
+                      </div>
+                      <div>
+                        <div className="font-medium text-gray-700">Quantization</div>
+                        <div className="text-lg font-bold text-orange-600">{llm.quantization}</div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="font-medium text-sm mb-2 text-gray-700">Use Cases:</h5>
+                      <div className="flex flex-wrap gap-1">
+                        {llm.useCase.map((usecase, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs">
+                            {usecase}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t">
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <Download className="h-3 w-3 mr-1" />
+                          Download
+                        </Button>
+                        <Button size="sm" variant="outline" className="flex-1">
+                          <ExternalLink className="h-3 w-3 mr-1" />
+                          Details
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Educational Cluster Templates */}
       <Card className="border-2 border-emerald-200 dark:border-emerald-800">
@@ -452,7 +652,7 @@ Mobile Device 1,8,mobile,Android 13,30"
                 <div className="text-sm text-gray-600 space-y-1">
                   <div>• 30 laptops @ 16GB each</div>
                   <div>• Llama 3.1 8B + Phi-3 Mini</div>
-                  <div>• Cost: ~$15,000 initial</div>
+                  <div>• 24 concurrent users</div>
                 </div>
                 <Button size="sm" className="mt-3 w-full" variant="outline">
                   Apply Template
@@ -467,7 +667,7 @@ Mobile Device 1,8,mobile,Android 13,30"
                 <div className="text-sm text-gray-600 space-y-1">
                   <div>• Mixed devices (70L + 30M)</div>
                   <div>• Distributed cluster setup</div>
-                  <div>• Cost: ~$45,000 initial</div>
+                  <div>• 80 concurrent users</div>
                 </div>
                 <Button size="sm" className="mt-3 w-full" variant="outline">
                   Apply Template
@@ -482,7 +682,7 @@ Mobile Device 1,8,mobile,Android 13,30"
                 <div className="text-sm text-gray-600 space-y-1">
                   <div>• Enterprise-grade cluster</div>
                   <div>• Multiple model types</div>
-                  <div>• Cost: ~$200,000+ initial</div>
+                  <div>• 400+ concurrent users</div>
                 </div>
                 <Button size="sm" className="mt-3 w-full" variant="outline">
                   Apply Template
