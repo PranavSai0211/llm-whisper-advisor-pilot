@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -19,7 +18,6 @@ import { Stats } from '@/components/Stats';
 import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings, ArrowRight, Star, Sparkles, TrendingUp, Shield } from 'lucide-react';
 import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@/utils/llmData';
 import { ModelComparison } from '@/components/ModelComparison';
-import { DownloadManager } from '@/components/DownloadManager';
 import { PerformanceTips } from '@/components/PerformanceTips';
 import { ClusterRecommendations } from '@/components/ClusterRecommendations';
 
@@ -238,11 +236,10 @@ const Index = () => {
 
           {/* Main Tabs */}
           <Tabs defaultValue="recommendations" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 lg:w-[600px] mx-auto h-14 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900 dark:to-cyan-900">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-5 lg:w-[500px] mx-auto h-14 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900 dark:to-cyan-900">
               <TabsTrigger value="recommendations" className="text-sm font-medium">Models</TabsTrigger>
               <TabsTrigger value="comparison" className="text-sm font-medium">Compare</TabsTrigger>
               <TabsTrigger value="clusters" className="text-sm font-medium">Clusters</TabsTrigger>
-              <TabsTrigger value="downloads" className="text-sm font-medium">Downloads</TabsTrigger>
               <TabsTrigger value="quantization" className="text-sm font-medium">Quantization</TabsTrigger>
               <TabsTrigger value="explorer" className="text-sm font-medium">Explorer</TabsTrigger>
             </TabsList>
@@ -261,10 +258,6 @@ const Index = () => {
 
             <TabsContent value="clusters">
               <ClusterRecommendations ramValue={ramValue} deviceType={selectedDevice} />
-            </TabsContent>
-
-            <TabsContent value="downloads">
-              <DownloadManager />
             </TabsContent>
 
             <TabsContent value="quantization">
