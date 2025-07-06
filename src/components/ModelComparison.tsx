@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -109,6 +108,96 @@ const expandedModels: Model[] = [
     ramRequirement: "6GB+",
     performance: 83,
     useCase: ["General", "Multilingual"]
+  },
+  {
+    name: "Llama 2 13B",
+    size: "7.4GB",
+    parameters: "13B",
+    quantization: ["Q4_K_M", "Q5_K_M", "Q8_0"],
+    ramRequirement: "10GB+",
+    performance: 84,
+    useCase: ["General", "Chat", "Research"]
+  },
+  {
+    name: "ChatGLM2 6B",
+    size: "3.2GB",
+    parameters: "6B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "4GB+",
+    performance: 79,
+    useCase: ["Chinese", "Multilingual", "Chat"]
+  },
+  {
+    name: "Qwen 7B",
+    size: "4.0GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M", "Q8_0"],
+    ramRequirement: "5GB+",
+    performance: 86,
+    useCase: ["Multilingual", "General", "Code"]
+  },
+  {
+    name: "Baichuan2 7B",
+    size: "3.9GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "5GB+",
+    performance: 81,
+    useCase: ["Chinese", "General", "Reasoning"]
+  },
+  {
+    name: "Mixtral 8x7B",
+    size: "26.9GB",
+    parameters: "47B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "32GB+",
+    performance: 94,
+    useCase: ["Advanced", "General", "Expert"]
+  },
+  {
+    name: "Zephyr 7B",
+    size: "4.1GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "5GB+",
+    performance: 83,
+    useCase: ["Chat", "Instruction", "General"]
+  },
+  {
+    name: "Starling 7B",
+    size: "4.0GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M", "Q8_0"],
+    ramRequirement: "5GB+",
+    performance: 85,
+    useCase: ["Chat", "Reasoning", "RLHF"]
+  },
+  {
+    name: "OpenHermes 2.5",
+    size: "4.1GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "5GB+",
+    performance: 84,
+    useCase: ["General", "Chat", "Instruction"]
+  },
+  {
+    name: "Dolphin 2.7",
+    size: "4.0GB",
+    parameters: "7B",
+    quantization: ["Q4_K_M", "Q5_K_M", "Q8_0"],
+    ramRequirement: "5GB+",
+    performance: 82,
+    useCase: ["Uncensored", "General", "Creative"]
+  },
+  {
+    name: "Solar 10.7B",
+    size: "6.1GB",
+    parameters: "10.7B",
+    quantization: ["Q4_K_M", "Q5_K_M"],
+    ramRequirement: "8GB+",
+    performance: 89,
+    useCase: ["Advanced", "Reasoning", "General"]
   }
 ];
 
