@@ -17,7 +17,7 @@ import { KeyboardShortcuts } from '@/components/KeyboardShortcuts';
 import { Stats } from '@/components/Stats';
 import { Brain, Cpu, HardDrive, Smartphone, Laptop, Zap, Download, Settings, ArrowRight, Star, Sparkles, TrendingUp, Shield } from 'lucide-react';
 import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@/utils/llmData';
-import { ModelComparison } from '@/components/ModelComparison';
+import { ModelBattleArena } from '@/components/ModelBattleArena';
 import { PerformanceTips } from '@/components/PerformanceTips';
 import { ClusterRecommendations } from '@/components/ClusterRecommendations';
 
@@ -47,7 +47,6 @@ const Index = () => {
         <DarkModeToggle />
         <KeyboardShortcuts />
         
-        {/* Enhanced Hero Section with New Background */}
         <div className="bg-gradient-to-r from-emerald-600 via-cyan-600 to-blue-600 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-transparent to-black/10"></div>
           <div className="absolute inset-0 opacity-30" style={{
@@ -125,10 +124,8 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 py-8">
-          {/* Statistics Section */}
           <Stats />
 
-          {/* Enhanced Quick Device Analyzer */}
           <Card className="mb-8 border-2 border-emerald-200 dark:border-emerald-800 shadow-2xl hover:shadow-3xl transition-all duration-500 bg-gradient-to-br from-white to-emerald-50 dark:from-gray-800 dark:to-emerald-900/30">
             <CardHeader className="bg-gradient-to-r from-emerald-100 via-cyan-100 to-blue-100 dark:from-emerald-900 dark:via-cyan-900 dark:to-blue-900">
               <CardTitle className="flex items-center text-2xl">
@@ -145,7 +142,6 @@ const Index = () => {
             </CardHeader>
             <CardContent className="p-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Device Type */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Device Type</label>
                   <Select value={selectedDevice} onValueChange={(value: 'laptop' | 'mobile') => setSelectedDevice(value)}>
@@ -169,7 +165,6 @@ const Index = () => {
                   </Select>
                 </div>
 
-                {/* RAM Input */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Available RAM</label>
                   <Input
@@ -180,7 +175,6 @@ const Index = () => {
                   />
                 </div>
 
-                {/* Operating System */}
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Operating System</label>
                   <Select value={selectedOS} onValueChange={setSelectedOS}>
@@ -196,7 +190,6 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Enhanced Quick Results */}
               {ramValue && (
                 <div className="mt-6 p-6 bg-gradient-to-r from-emerald-50 via-cyan-50 to-blue-50 dark:from-emerald-900/30 dark:via-cyan-900/30 dark:to-blue-900/30 rounded-xl border-2 border-emerald-200 dark:border-emerald-800 shadow-lg">
                   <div className="flex items-center justify-between mb-4">
@@ -214,7 +207,6 @@ const Index = () => {
                   <p className="text-gray-700 dark:text-gray-300 mb-3 text-lg">{recommendations.recommendation}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{recommendations.additionalInfo}</p>
                   
-                  {/* Enhanced RAM Usage Indicator */}
                   <div className="mt-4">
                     <div className="flex justify-between text-sm mb-2">
                       <span className="font-medium">Recommended Usage</span>
@@ -234,11 +226,10 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Main Tabs */}
           <Tabs defaultValue="recommendations" className="space-y-6">
             <TabsList className="grid w-full grid-cols-3 lg:grid-cols-5 lg:w-[500px] mx-auto h-14 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900 dark:to-cyan-900">
               <TabsTrigger value="recommendations" className="text-sm font-medium">Models</TabsTrigger>
-              <TabsTrigger value="comparison" className="text-sm font-medium">Compare</TabsTrigger>
+              <TabsTrigger value="battleArena" className="text-sm font-medium">🥊 Battle</TabsTrigger>
               <TabsTrigger value="clusters" className="text-sm font-medium">Clusters</TabsTrigger>
               <TabsTrigger value="quantization" className="text-sm font-medium">Quantization</TabsTrigger>
               <TabsTrigger value="explorer" className="text-sm font-medium">Explorer</TabsTrigger>
@@ -252,8 +243,8 @@ const Index = () => {
               />
             </TabsContent>
 
-            <TabsContent value="comparison">
-              <ModelComparison />
+            <TabsContent value="battleArena">
+              <ModelBattleArena />
             </TabsContent>
 
             <TabsContent value="clusters">
@@ -274,12 +265,10 @@ const Index = () => {
             </TabsContent>
           </Tabs>
 
-          {/* Performance Tips Section */}
           <div className="mt-12">
             <PerformanceTips />
           </div>
 
-          {/* Performance Tiers Reference */}
           <Card className="mt-8 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
             <CardHeader>
               <CardTitle className="flex items-center">
@@ -306,7 +295,6 @@ const Index = () => {
             </CardContent>
           </Card>
 
-          {/* Enhanced Footer */}
           <div className="mt-12 text-center text-gray-600 dark:text-gray-400">
             <Separator className="mb-8" />
             <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-100">🔗 Essential Download & Deployment Tools</h3>

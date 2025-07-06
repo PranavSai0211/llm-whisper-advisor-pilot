@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { X, Plus, Zap, HardDrive, Cpu, Clock, Search, ChevronDown } from 'lucide-react';
+import { X, Plus, Zap, HardDrive, Cpu, Clock, Search, ChevronDown, Swords } from 'lucide-react';
 
 interface Model {
   name: string;
@@ -201,7 +201,7 @@ const expandedModels: Model[] = [
   }
 ];
 
-export const ModelComparison = () => {
+export const ModelBattleArena = () => {
   const [selectedModels, setSelectedModels] = useState<Model[]>([expandedModels[0], expandedModels[1]]);
   const [availableModels] = useState<Model[]>(expandedModels);
   const [open, setOpen] = useState(false);
@@ -234,15 +234,17 @@ export const ModelComparison = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Zap className="h-5 w-5 mr-2" />
-            Model Comparison Tool
-            <Badge variant="secondary" className="ml-2">Compare up to 3 models</Badge>
+            <Swords className="h-5 w-5 mr-2 text-purple-600" />
+            🥊 AI Model Battle Arena
+            <Badge variant="secondary" className="ml-2 bg-gradient-to-r from-purple-100 to-pink-100 border-purple-300">
+              ⚔️ Battle up to 3 champions
+            </Badge>
           </CardTitle>
         </CardHeader>
         <CardContent>
           {/* Enhanced Add Model Section */}
           <div className="mb-6">
-            <h3 className="text-sm font-medium mb-3">Add Models to Compare:</h3>
+            <h3 className="text-sm font-medium mb-3">🎯 Choose Your AI Fighters:</h3>
             <div className="flex gap-2 items-center">
               <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
@@ -250,12 +252,12 @@ export const ModelComparison = () => {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[300px] justify-between"
+                    className="w-[300px] justify-between border-2 border-purple-200 hover:border-purple-300"
                     disabled={selectedModels.length >= 3}
                   >
                     <div className="flex items-center">
                       <Search className="h-4 w-4 mr-2" />
-                      {searchValue || "Search and select models..."}
+                      {searchValue || "🔍 Scout for AI warriors..."}
                     </div>
                     <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
@@ -263,12 +265,12 @@ export const ModelComparison = () => {
                 <PopoverContent className="w-[300px] p-0" align="start">
                   <Command>
                     <CommandInput 
-                      placeholder="Search models..." 
+                      placeholder="🔍 Search champions..." 
                       value={searchValue}
                       onValueChange={setSearchValue}
                     />
                     <CommandList>
-                      <CommandEmpty>No models found.</CommandEmpty>
+                      <CommandEmpty>No champions found. 🤔</CommandEmpty>
                       <CommandGroup>
                         {filteredModels.map((model) => (
                           <CommandItem
@@ -279,13 +281,13 @@ export const ModelComparison = () => {
                           >
                             <div className="flex items-center justify-between w-full">
                               <div>
-                                <div className="font-medium">{model.name}</div>
+                                <div className="font-medium">⚡ {model.name}</div>
                                 <div className="text-xs text-gray-500">
                                   {model.parameters} • {model.size} • {model.ramRequirement}
                                 </div>
                               </div>
                               <Badge variant="outline" className="text-xs">
-                                {model.performance}/100
+                                💪 {model.performance}/100
                               </Badge>
                             </div>
                           </CommandItem>
@@ -296,41 +298,43 @@ export const ModelComparison = () => {
                 </PopoverContent>
               </Popover>
               
-              <Badge variant="outline" className="text-xs">
-                {selectedModels.length}/3 selected
+              <Badge variant="outline" className="text-xs bg-gradient-to-r from-purple-50 to-pink-50 border-purple-300">
+                🏟️ {selectedModels.length}/3 fighters ready
               </Badge>
             </div>
           </div>
 
-          {/* Comparison Table */}
+          {/* Battle Arena Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {selectedModels.map((model, index) => (
-              <Card key={model.name} className="relative">
+              <Card key={model.name} className="relative border-2 border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => removeModel(model.name)}
-                  className="absolute top-2 right-2 h-6 w-6 p-0"
+                  className="absolute top-2 right-2 h-6 w-6 p-0 hover:bg-red-100"
                 >
                   <X className="h-3 w-3" />
                 </Button>
                 
                 <CardContent className="p-4 pt-8">
-                  <h4 className="font-semibold text-lg mb-4">{model.name}</h4>
+                  <h4 className="font-semibold text-lg mb-4 flex items-center">
+                    {index === 0 && '🥇'} {index === 1 && '🥈'} {index === 2 && '🥉'} {model.name}
+                  </h4>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Size:</span>
+                      <span className="text-sm text-gray-600">📦 Size:</span>
                       <Badge variant="outline">{model.size}</Badge>
                     </div>
                     
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Parameters:</span>
+                      <span className="text-sm text-gray-600">🧠 Parameters:</span>
                       <span className="font-medium">{model.parameters}</span>
                     </div>
                     
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">RAM Required:</span>
+                      <span className="text-sm text-gray-600">💾 RAM Needed:</span>
                       <span className="font-medium flex items-center">
                         <HardDrive className="h-3 w-3 mr-1" />
                         {model.ramRequirement}
@@ -338,16 +342,16 @@ export const ModelComparison = () => {
                     </div>
                     
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Performance:</span>
+                      <span className="text-sm text-gray-600">⚡ Power Level:</span>
                       <span className={`font-medium ${getPerformanceColor(model.performance)}`}>
-                        {model.performance}/100
+                        💪 {model.performance}/100
                       </span>
                     </div>
                     
                     <Separator />
                     
                     <div>
-                      <span className="text-sm text-gray-600 block mb-2">Quantization:</span>
+                      <span className="text-sm text-gray-600 block mb-2">🛠️ Optimization:</span>
                       <div className="flex flex-wrap gap-1">
                         {model.quantization.map((quant) => (
                           <Badge key={quant} variant="secondary" className="text-xs">
@@ -358,7 +362,7 @@ export const ModelComparison = () => {
                     </div>
                     
                     <div>
-                      <span className="text-sm text-gray-600 block mb-2">Use Cases:</span>
+                      <span className="text-sm text-gray-600 block mb-2">🎯 Battle Skills:</span>
                       <div className="flex flex-wrap gap-1">
                         {model.useCase.map((useCase) => (
                           <Badge key={useCase} variant="outline" className="text-xs">
