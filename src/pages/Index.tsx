@@ -20,6 +20,9 @@ import { extractNumericRam, getModelRecommendations, PERFORMANCE_TIERS } from '@
 import { ModelBattleArena } from '@/components/ModelBattleArena';
 import { PerformanceTips } from '@/components/PerformanceTips';
 import { ClusterRecommendations } from '@/components/ClusterRecommendations';
+import { OllamaAssistant } from "@/components/OllamaAssistant";
+
+
 
 const Index = () => {
   const [selectedDevice, setSelectedDevice] = useState<'laptop' | 'mobile'>('laptop');
@@ -267,6 +270,7 @@ const Index = () => {
 
           <div className="mt-12">
             <PerformanceTips />
+            <OllamaAssistant />
           </div>
 
           <Card className="mt-8 shadow-xl hover:shadow-2xl transition-all duration-500 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
