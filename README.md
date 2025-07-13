@@ -3,7 +3,7 @@
 
 A multilingual AI assistant web app built with **Vite + React + TypeScript** that provides compatibility suggestions for Large Language Models (LLMs) based on your system's hardware (especially RAM). It uses local models via **Ollama** or external APIs like **Google AI**, and supports multilingual interaction (English, Hindi, Telugu).
 
-🌐 [Live App](https://88fqf5q3-8080.inc1.devtunnels.ms/)
+🌐 [Live App](https://modelmate-xi.vercel.app/)
 
 ---
 
