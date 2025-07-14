@@ -1,68 +1,33 @@
+# Welcome 
 
-# 🤖 LLM Whisper Advisor
+## Project info
 
-A multilingual AI assistant web app built with **Vite + React + TypeScript** that provides compatibility suggestions for Large Language Models (LLMs) based on your system's hardware (especially RAM). It uses local models via **Ollama** or external APIs like **Google AI**, and supports multilingual interaction (English, Hindi, Telugu).
+**URL**: [llmwhisper-five.vercel.app](https://llmwhisper-five.vercel.app/)
 
-🌐 [Live App](https://88fqf5q3-8080.inc1.devtunnels.ms/)
 
----
+## How can I edit this code?
 
-## ✨ Features
+There are several ways of editing your application.
 
-- 🔀 **Model Switching** – Choose from various LLMs (LLaMA3, Mistral, Gemma, etc.)
-- 💬 **Streamed AI Responses** – Fast & real-time chatbot experience
-- 🌍 **Multilingual Output** – English, हिंदी, తెలుగు
-- 🎙️ **Voice Input** (Speech-to-Text) for user queries
-- 📊 **RAM-Based LLM Suggestions** – Suggests best LLMs based on available system memory
-- 💾 **Quantization & Model Details** – Gives metadata like context length, model size, use-case
-- 📥 **Local or Cloud Inference** – Use Ollama locally or deploy inference backend online
-- 📁 **Dynamic CSV/Excel Support** – Uses structured model data for smart recommendations
+**Use your preferred IDE**
 
----
+If you want to work locally using your own IDE, you can clone this repo and push changes.
 
-## 🛠️ Tech Stack
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-| Tool         | Description                       |
-|--------------|-----------------------------------|
-| Vite         | Fast build tool                   |
-| React + TS   | Frontend UI with type safety      |
-| Tailwind CSS | Styling                           |
-| shadcn/ui    | UI components                     |
-| i18next      | Internationalization support      |
-| Ollama       | Local LLM inference engine        |
-| Google AI    | Optional cloud-based LLM support  |
+Follow these steps:
 
----
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-## 📦 Installation & Setup
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-> **Requirements**: Node.js (18+), npm, Ollama (if using local models)
+# Step 3: Install the necessary dependencies.
+npm i
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/llm-whisper-advisor.git
-cd llm-whisper-advisor-pilot
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Configure Environment
-
-Create a `.env` file (example):
-
-```env
-VITE_OLLAMA_HOST=http://localhost:11434
-VITE_SUPPORTED_LANGUAGES=en,hi,te
-```
-
-### 4. Start Development Server
-
-```bash
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
