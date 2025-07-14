@@ -68,7 +68,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-emerald-100 bg-clip-text text-transparent animate-fade-in">
-              🧠 AI Model Advisor
+              🧠 Model Matrix
             </h1>
             
             <p className="text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-cyan-50">
