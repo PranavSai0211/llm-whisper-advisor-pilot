@@ -44,18 +44,6 @@ The app will be available at [http://localhost:5173](http://localhost:5173).
 
 ---
 
-## 📤 Deployment (Vercel + Ollama Backend)
-
-### Option 1: Local Use Only
-Run Ollama and the frontend locally.
-
-### Option 2: Public Use
-Deploy frontend on Vercel and host Ollama on a cloud server (e.g., EC2) at a public IP.
-- Update `.env` with public Ollama URL
-- Make sure ports are open (`11434`)
-
----
-
 ## 🌍 Multilingual Support
 
 - Built-in support for:
@@ -106,13 +94,6 @@ npm run lint       # Lint code with ESLint
 ```
 
 ---
-
-## 📖 License
-
-MIT © 2025 [Your Name or Org]
-
----
-
 ## 🙋‍♂️ Contributions
 
 Pull requests welcome! Please open an issue first for major changes.
