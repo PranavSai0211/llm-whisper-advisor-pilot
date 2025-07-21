@@ -1,99 +1,114 @@
-# Welcome 
+# 🚀🌟 ModelMancer ✨🤖
 
-## Project info
+A sleek AI-powered model recommendation assistant based on your device's RAM 💡  
+Live app: 👉 [https://modelmate-xi.vercel.app/](https://modelmate-xi.vercel.app/)
 
-**URL**: [llmwhisper-five.vercel.app](https://llmwhisper-five.vercel.app/)
+---
 
+## 🔧 Getting Started
 
-## How can I edit this code?
+You can easily edit the app in your favorite development environment.
 
-There are several ways of editing your application.
+### 🛠️ Local Setup
 
-**Use your preferred IDE**
+> ⚠️ Requires Node.js & npm.  
+> Recommended: Install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# 1. Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# 2. Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Run the app locally
 npm run dev
 ```
 
-The app will be available at [http://localhost:5173](http://localhost:5173).
+🌐 Visit: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 🧠 How It Works
+## 🧠 Features at a Glance
 
-1. **User enters RAM capacity**
-2. **App suggests compatible models** using structured data (`model_data.csv` or Excel)
-3. **Assistant can chat** using selected model (via Ollama API or external backend)
-4. **Supports translation and voice input** for multilingual users
-
----
-
-## 🌍 Multilingual Support
-
-- Built-in support for:
-  - English (`en`)
-  - Hindi (`hi`)
-  - Telugu (`te`)
-- Add more via `i18n.ts` config
+✅ **RAM-based model suggestions** using structured CSV/Excel data  
+✅ **Ollama-powered AI assistant** with interactive chat  
+✅ **Voice input + translation** for multilingual interaction  
+✅ **Multilingual UI:** English, हिंदी, తెలుగు  
+✅ **Runs on Vercel** for instant access
 
 ---
 
-## 📁 Folder Structure
+## 🌐 Multilingual Support
+
+| Language | Code |
+|----------|------|
+| 🇬🇧 English | `en` |
+| 🇮🇳 Hindi   | `hi` |
+| 🇮🇳 Telugu  | `te` |
+
+🛠 Add more languages via `i18n.ts`
+
+---
+
+## 🗂️ Project Structure
 
 ```
 llm-whisper-advisor-pilot/
-├── public/               # Static assets
+├── public/               # Static assets (icons, images)
 ├── src/
-│   ├── components/       # UI components
-│   ├── contexts/         # Language context
-│   ├── data/             # Model CSV or Excel data
-│   ├── pages/            # Main pages
-│   └── utils/            # Helper functions
-├── package.json
-├── vite.config.ts
-└── tailwind.config.ts
+│   ├── components/       # UI components (chat UI, buttons)
+│   ├── contexts/         # Language and theme context
+│   ├── data/             # Model data (CSV/Excel)
+│   ├── pages/            # Page-level views
+│   └── utils/            # Utility functions
+├── package.json          # Dependencies
+├── vite.config.ts        # Vite config
+└── tailwind.config.ts    # Tailwind theme
 ```
 
 ---
 
-## 🤖 Models Supported
+## 🤖 Supported Models
 
-- 🧠 **LLaMA 2 / 3** (Meta)
-- 🧠 **Mistral 7B / Mixtral**
-- 🧠 **Gemma (Google)**
-- 🧠 **Phi-2 / Phi-3**
-- 🧠 **Zephyr, Dolphin, WizardLM**
-- 🧠 **CodeLlama / DeepSeek-Coder**
-- ...and more (70B quantized models too!)
+✨ Includes support for top open-source LLMs:
+
+- 🧠 LLaMA 2 & 3 (Meta)
+- ⚡ Mistral 7B / Mixtral
+- 🔎 Google Gemma
+- 📘 Phi-2 / Phi-3 (Microsoft)
+- 🧙 WizardLM, Zephyr, Dolphin
+- 💻 CodeLlama / DeepSeek-Coder
+- 🔢 Quantized 70B models (8-bit)
+
+> All models are mapped against RAM profiles (ultra low → ultra high)
 
 ---
 
-## 🧪 Development Scripts
+## 📦 NPM Scripts
 
 ```bash
-npm run dev        # Run development server
-npm run build      # Create production build
-npm run preview    # Preview production build
-npm run lint       # Lint code with ESLint
+npm run dev        # Start dev server
+npm run build      # Build for production
+npm run preview    # Preview production
+npm run lint       # Lint with ESLint
 ```
 
 ---
-## 🙋‍♂️ Contributions
 
-Pull requests welcome! Please open an issue first for major changes.
+## 🤝 Contributing
+
+Contributions are welcome!
+
+- 🔧 Fork the repo
+- 📥 Submit a pull request
+- 🐛 Open issues for bugs/features
+
+> Please open an issue first for large changes.
+
+---
+
+💡 *Built with ❤️ using Vite + React + Tailwind + Ollama*
