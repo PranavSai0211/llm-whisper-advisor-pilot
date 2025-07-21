@@ -57,18 +57,10 @@ const Index = () => {
           }}></div>
           
           <div className="container mx-auto px-4 py-20 text-center relative z-10">
-            <div className="flex justify-center mb-8">
-              <div className="relative animate-bounce">
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-xl opacity-70 animate-pulse"></div>
-                <Brain className="h-20 w-20 relative z-10 drop-shadow-2xl" />
-                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-full w-8 h-8 flex items-center justify-center animate-spin">
-                  <Sparkles className="h-4 w-4" />
-                </div>
-              </div>
-            </div>
+            
             
             <h1 className="text-7xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-100 to-emerald-100 bg-clip-text text-transparent animate-fade-in">
-              🧠 Model Matrix
+              Model Mancer
             </h1>
             
             <p className="text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-cyan-50">
